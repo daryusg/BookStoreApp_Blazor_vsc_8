@@ -1,9 +1,15 @@
+using BookStoreApp.API.Data;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+//--------------------------------------------------------------------------
+//cip...14
+var connString = builder.Configuration.GetConnectionString("BookStoreDbConnection");
+builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServer(connString));
+//--------------------------------------------------------------------------
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 //26/07/25 chatgpt: builder.Services.AddOpenApi();
@@ -38,6 +44,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll"); //cip...11
+
 app.UseAuthorization();
 
 app.MapControllers();

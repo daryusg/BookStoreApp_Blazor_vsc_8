@@ -58,3 +58,8 @@ System.Exception: This is my logging test exception.
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-29 18:21:17.648 +01:00 [INF] Now listening on: https://localhost:7235
+2025-07-29 18:21:17.738 +01:00 [INF] Now listening on: http://localhost:5058
+2025-07-29 18:21:17.744 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-29 18:21:17.744 +01:00 [INF] Hosting environment: Development
+2025-07-29 18:21:17.745 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
