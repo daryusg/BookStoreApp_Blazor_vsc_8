@@ -21,7 +21,5 @@ public partial class Book
 
     public int? AuthorId { get; set; }
 
-    public virtual Book? Author { get; set; }
-
-    public virtual ICollection<Book> InverseAuthor { get; set; } = new List<Book>();
+    public virtual Author? Author { get; set; }
 }
