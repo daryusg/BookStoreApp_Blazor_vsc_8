@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
+using BookStoreApp.API.Data.Models.Author;
+using AutoMapper;
+using BookStoreApp.API.Static;
 
 namespace BookStoreApp.API.Controllers
 {
@@ -15,92 +13,167 @@ namespace BookStoreApp.API.Controllers
     public class AuthorsController : ControllerBase
     {
         private readonly BookStoreDbContext _context;
+        private readonly IMapper _mapper; //cip...19
+        private readonly ILogger _logger; //cip...20
 
-        public AuthorsController(BookStoreDbContext context)
+        public AuthorsController(BookStoreDbContext context, IMapper mapper, ILogger<AuthorsController> logger) //cip...19, 20
         {
             _context = context;
+            this._mapper = mapper;
+            this._logger = logger;
         }
 
         // GET: api/Authors
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
+        //public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
+        public async Task<ActionResult<IEnumerable<AuthorReadOnlyDto>>> GetAuthors() //cip...19
         {
-            return await _context.Authors.ToListAsync();
+            _logger.LogInformation($"Request to {nameof(GetAuthors)}"); //cip...20
+            try //cip...20
+            {
+                //return await _context.Authors.ToListAsync();
+                var authors = await _context.Authors.ToListAsync();
+                var authorsDto = _mapper.Map<IEnumerable<AuthorReadOnlyDto>>(authors);
+                return Ok(authorsDto); // Return the mapped list of authorsDto
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred in {nameof(GetAuthors)}");
+                return StatusCode(500, Messages.Error500Message); // Return a 500 Internal Server Error response
+            }
         }
 
         // GET: api/Authors/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Author>> GetAuthor(int id)
+        //public async Task<ActionResult<Author>> GetAuthor(int id)
+        public async Task<ActionResult<AuthorReadOnlyDto>> GetAuthor(int id) //cip...19
         {
-            var author = await _context.Authors.FindAsync(id);
-
-            if (author == null)
+            try //cip...20
             {
-                return NotFound();
-            }
+                var author = await _context.Authors.FindAsync(id);
 
-            return author;
+                if (author == null)
+                {
+                    _logger.LogWarning($"Author (id = {id}) not found in {nameof(GetAuthor)}"); //cip...20
+                    return NotFound();
+                }
+
+                //return author;
+                var authorDto = _mapper.Map<AuthorReadOnlyDto>(author); // Map Author to AuthorReadOnlyDto
+                return Ok(authorDto); // Return the mapped authorDto
+
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred in {nameof(GetAuthor)} with id = {id}");
+                return StatusCode(500, Messages.Error500Message); // Return a 500 Internal Server Error response
+            }
         }
 
         // PUT: api/Authors/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAuthor(int id, Author author)
+        //public async Task<IActionResult> PutAuthor(int id, Author author)
+        public async Task<IActionResult> PutAuthor(int id, AuthorUpdateDto authorDto)//cip...19
         {
-            if (id != author.Id)
+            try //cip...20
             {
-                return BadRequest();
-            }
-
-            _context.Entry(author).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                //if (!AuthorExists(id))
-                if (!await AuthorExists(id)) //tw update
+                if (id != authorDto.Id)
                 {
+                    return BadRequest();
+                }
+
+                var author = await _context.Authors.FindAsync(id);
+                if (author == null)
+                {
+                    _logger.LogWarning($"{nameof(Author)} record not found in {nameof(PutAuthor)} with id = {id}.");
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+                _mapper.Map(authorDto, author); // Map AuthorUpdateDto to Author (ie copy data from authorDto to author)
+
+                _context.Entry(author).State = EntityState.Modified;
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    //if (!AuthorExists(id))
+                    if (!await AuthorExists(id)) //tw update
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        //throw;
+                        return StatusCode(500, Messages.Error500Message); // Return a 500 Internal Server Error response
+                    }
+                }
+
+                return NoContent();
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred in {nameof(PutAuthor)} with id = {id}.");
+                return StatusCode(500, Messages.Error500Message); // Return a 500 Internal Server Error response
+            }
         }
 
         // POST: api/Authors
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Author>> PostAuthor(Author author)
+        //public async Task<ActionResult<Author>> PostAuthor(Author author)
+        public async Task<ActionResult<AuthorCreateDto>> PostAuthor(AuthorCreateDto authorDto) //cip...19
         {
-            //_context.Authors.Add(author);
-            await _context.Authors.AddAsync(author); //tw update
-            await _context.SaveChangesAsync();
+            try //cip...20
+            {
+                //i can, either, map here (see below) or use AutoMapper here to map authorDto (AuthorCreateDto) to author (Author)
+                // var author = new Author
+                // {
+                //     FirstName = authorDto.FirstName,
+                //     LastName = authorDto.LastName,
+                //     Bio = authorDto.Bio
+                // };
+                var author = _mapper.Map<Author>(authorDto);
+                //_context.Authors.Add(author);
+                await _context.Authors.AddAsync(author); //tw update
+                await _context.SaveChangesAsync();
 
-            //return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
-            return CreatedAtAction(nameof(GetAuthor), new { id = author.Id }, author); //tw update
+                //return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
+                return CreatedAtAction(nameof(GetAuthor), new { id = author.Id }, author); //tw update (to use nameof)
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred in {nameof(PostAuthor)}.");
+                return StatusCode(500, Messages.Error500Message); // Return a 500 Internal Server Error response
+            }
         }
 
         // DELETE: api/Authors/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
-            var author = await _context.Authors.FindAsync(id);
-            if (author == null)
+            try //cip...20
             {
-                return NotFound();
+                var author = await _context.Authors.FindAsync(id);
+                if (author == null)
+                {
+                    _logger.LogWarning($"{nameof(Author)} record not found in {nameof(DeleteAuthor)} with id = {id}.");
+                    return NotFound();
+                }
+
+                _context.Authors.Remove(author);
+                await _context.SaveChangesAsync();
+
+                return NoContent();
             }
-
-            _context.Authors.Remove(author);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred in {nameof(DeleteAuthor)} with id = {id}.");
+                return StatusCode(500, Messages.Error500Message); // Return a 500 Internal Server Error response
+            }
         }
 
         /*
