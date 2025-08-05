@@ -1,0 +1,66 @@
+2025-08-05 13:44:15.599 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-05 13:44:15.687 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-05 13:44:15.690 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-05 13:44:15.691 +01:00 [INF] Hosting environment: Development
+2025-08-05 13:44:15.691 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-05 14:37:40.576 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-05 14:37:40.646 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-05 14:37:40.649 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-05 14:37:40.652 +01:00 [INF] Hosting environment: Development
+2025-08-05 14:37:40.652 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-05 14:38:01.120 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[BookStoreApp.API.Data.Book, BookStoreApp.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[BookStoreApp.API.Data.Models.Book.BookReadOnlyDto, BookStoreApp.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Book -> BookReadOnlyDto
+BookStoreApp.API.Data.Book -> BookStoreApp.API.Data.Models.Book.BookReadOnlyDto
+   at lambda_method72(Closure, Book, BookReadOnlyDto, ResolutionContext)
+   at lambda_method71(Closure, Object, IEnumerable`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method71(Closure, Object, IEnumerable`1, ResolutionContext)
+   at BookStoreApp.API.Controllers.BooksController.GetBooks() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\Controllers\BooksController.cs:line 35
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-08-05 14:39:48.621 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-05 14:39:48.691 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-05 14:39:48.695 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-05 14:39:48.696 +01:00 [INF] Hosting environment: Development
+2025-08-05 14:39:48.696 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-05 14:42:01.020 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-05 14:42:01.099 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-05 14:42:01.105 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-05 14:42:01.106 +01:00 [INF] Hosting environment: Development
+2025-08-05 14:42:01.106 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-05 15:02:01.751 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-05 15:02:01.820 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-05 15:02:01.823 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-05 15:02:01.824 +01:00 [INF] Hosting environment: Development
+2025-08-05 15:02:01.824 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-05 15:09:34.762 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-05 15:09:34.847 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-05 15:09:34.851 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-05 15:09:34.851 +01:00 [INF] Hosting environment: Development
+2025-08-05 15:09:34.852 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-05 18:29:30.500 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-05 18:29:30.580 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-05 18:29:30.585 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-05 18:29:30.586 +01:00 [INF] Hosting environment: Development
+2025-08-05 18:29:30.586 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API

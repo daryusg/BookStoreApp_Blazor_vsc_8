@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace BookStoreApp.API.Data.Models.Author;
 
 public class AuthorReadOnlyDto : BaseDto //cip...19

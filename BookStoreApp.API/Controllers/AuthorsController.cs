@@ -101,7 +101,7 @@ namespace BookStoreApp.API.Controllers
                 catch (DbUpdateConcurrencyException)
                 {
                     //if (!AuthorExists(id))
-                    if (!await AuthorExists(id)) //tw update
+                    if (!await AuthorExistsAsync(id)) //tw update
                     {
                         return NotFound();
                     }
@@ -182,7 +182,7 @@ namespace BookStoreApp.API.Controllers
             return _context.Authors.Any(e => e.Id == id);
         }
         */
-        private async Task<bool> AuthorExists(int id)  //tw update
+        private async Task<bool> AuthorExistsAsync(int id)  //tw update
         {
             return await _context.Authors.AnyAsync(e => e.Id == id);
         }
