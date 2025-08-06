@@ -73,7 +73,7 @@ namespace BookStoreApp.API.Controllers
             }
 
             _mapper.Map(bookDto, book); // Map BookUpdateDto to Book
-            _context.Entry(bookDto).State = EntityState.Modified;
+            _context.Entry(book).State = EntityState.Modified;
 
             try
             {

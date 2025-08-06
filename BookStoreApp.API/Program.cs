@@ -1,5 +1,6 @@
 using BookStoreApp.API.Configurations;
 using BookStoreApp.API.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -12,6 +13,11 @@ var connString = builder.Configuration.GetConnectionString("BookStoreDbConnectio
 builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServer(connString));
 //--------------------------------------------------------------------------
 builder.Services.AddAutoMapper(typeof(MapperConfig)); //cip...19 the dependency injection package allows me to add automapper here
+
+//builder.Services.AddIdentityCore<IdentityUser>()
+builder.Services.AddIdentityCore<ApiUser>() //cip...28
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<BookStoreDbContext>(); //cip...27
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

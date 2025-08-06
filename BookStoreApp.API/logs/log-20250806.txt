@@ -1,0 +1,14 @@
+2025-08-06 17:27:23.446 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-06 17:27:23.531 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-06 17:27:23.539 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-06 17:27:23.541 +01:00 [INF] Hosting environment: Development
+2025-08-06 17:27:23.541 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-06 17:32:23.459 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-06 17:33:42.364 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-06 17:34:58.547 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-06 17:36:30.452 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-06 17:38:12.898 +01:00 [INF] Request to Login with email: user2@bookstore.com
+2025-08-06 17:38:24.800 +01:00 [INF] Request to Login with email: user2@bookstore.com
+2025-08-06 17:39:47.399 +01:00 [INF] Request to Login with email: user2@bookstore.com
+2025-08-06 17:45:18.053 +01:00 [INF] Request to Register with email: user3@bookstore.com
+2025-08-06 18:00:37.863 +01:00 [INF] Request to Register with email: user3@bookstore.com
