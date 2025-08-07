@@ -11,6 +11,7 @@ C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Auto
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Humanizer.dll
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

@@ -1,8 +1,13 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using AutoMapper;
 using BookStoreApp.API.Data;
 using BookStoreApp.API.Data.Models.User;
+using BookStoreApp.API.Static;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BookStoreApp.API.Controllers
 {
@@ -13,12 +18,14 @@ namespace BookStoreApp.API.Controllers
         private readonly ILogger<AuthController> _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<ApiUser> _userManager;
+        private readonly IConfiguration _configuration; //cip...32
 
-        public AuthController(ILogger<AuthController> logger, IMapper mapper, UserManager<ApiUser> userManager) //cip...30
+        public AuthController(ILogger<AuthController> logger, IMapper mapper, UserManager<ApiUser> userManager, IConfiguration configuration) //cip...30,32
         {
             this._logger = logger;
             this._mapper = mapper;
             this._userManager = userManager;
+            this._configuration = configuration;
         }
 
         [HttpPost]
@@ -64,7 +71,8 @@ namespace BookStoreApp.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login(LoginUserDto userDto)
+        //public async Task<IActionResult> Login(LoginUserDto userDto)
+        public async Task<ActionResult<AuthResponse>> Login(LoginUserDto userDto) //cip...32
         {
             _logger.LogInformation($"Request to {nameof(Login)} with email: {userDto.Email}"); //cip...30
             try
@@ -72,19 +80,30 @@ namespace BookStoreApp.API.Controllers
                 var user = await _userManager.FindByEmailAsync(userDto.Email);
                 if (user == null)
                 {
-                    return Unauthorized("Invalid email or password.");
+                    return Unauthorized(userDto);
                 }
 
                 var result = await _userManager.CheckPasswordAsync(user, userDto.Password);
                 if (!result)
                 {
-                    return Unauthorized("Invalid email or password.");
+                    return Unauthorized(userDto);
                 }
 
-                // Generate JWT token or any other authentication token here
-                // For simplicity, returning a success message
-                //return Ok(new { Message = "Login successful." });
-                return Accepted(); // Return 202 Accepted for successful login
+                // Generate JWT token or any other authentication token here //genned by copilot
+                // For simplicity, returning a success message //genned by copilot
+                //var tokenString = await _userManager.GenerateUserTokenAsync(user, TokenOptions.DefaultProvider, "Login"); //genned by copilot
+                string tokenString = await GenerateTokenAsync(user);
+
+                var response = new AuthResponse
+                {
+                    UserId = user.Id,
+                    Token = tokenString,
+                    Email = userDto.Email
+                };
+
+                //return Ok(new { Message = "Login successful." }); //genned by copilot
+                return Accepted(response); // Return 202 Accepted for successful login
+                //could also: return response; // due to Task<ActionResult<AuthResponse>>
             }
             catch (Exception ex)
             {
@@ -92,6 +111,38 @@ namespace BookStoreApp.API.Controllers
                 return Problem($"An error occurred in {nameof(Login)}.", statusCode: 500);
             }
 
+        }
+
+        private async Task<string> GenerateTokenAsync(ApiUser user) //cip...32
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var roleClaims = roles.Select(role => new Claim(ClaimTypes.Role, role)).ToList();
+            //adding db claims
+            var userClaims = await _userManager.GetClaimsAsync(user);
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
+                // Add any other claims you need
+                new Claim(CustomClaimTypes.Uid, user.Id)
+            }
+            .Union(userClaims) // Add user claims from the database
+            .Union(roleClaims);
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["JwtSettings:Issuer"],
+                audience: _configuration["JwtSettings:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(_configuration.GetValue<int>("JwtSettings:Duration")),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
