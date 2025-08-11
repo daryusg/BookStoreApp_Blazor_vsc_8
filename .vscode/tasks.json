@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run API",
+      "type": "shell",
+      "command": "dotnet run --project BookStoreApp.API",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run Blazor Server UI",
+      "type": "shell",
+      "command": "dotnet run --project BookStoreAppBlazor.Server.UI",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Both",
+      "dependsOn": ["Run API", "Run Blazor Server UI"],
+      "dependsOrder": "sequence"
+    }
+  ]
+}

@@ -1,5 +1,3 @@
-using System;
-
 namespace BookStoreApp.API.Data.Models.User;
 
 public class AuthResponse //cip...32

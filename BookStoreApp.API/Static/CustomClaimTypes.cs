@@ -1,5 +1,3 @@
-using System;
-
 namespace BookStoreApp.API.Static;
 
 public static class CustomClaimTypes //cip...32

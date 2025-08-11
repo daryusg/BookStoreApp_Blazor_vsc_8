@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj": {}
+    "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj": {
+    "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj",
+        "projectUniqueName": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj",
         "projectName": "BookStoreAppBlazor.Server.UI",
-        "projectPath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj",
+        "projectPath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj",
         "packagesPath": "C:\\Users\\kev\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\obj\\",
+        "outputPath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreAppBlazor.Server.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
