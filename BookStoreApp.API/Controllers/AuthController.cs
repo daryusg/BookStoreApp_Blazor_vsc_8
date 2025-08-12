@@ -60,7 +60,7 @@ namespace BookStoreApp.API.Controllers
 
                 //return Ok(new { Message = "User registered successfully." });
                 //return Accepted(new { Message = "User registered successfully." });
-                return Accepted();
+                return Accepted(); // Return 202 Accepted for successful login
             }
             catch (Exception ex)
             {
