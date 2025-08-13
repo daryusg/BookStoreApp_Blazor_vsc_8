@@ -1,0 +1,25 @@
+2025-08-13 14:55:33.451 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-13 14:55:33.539 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-13 14:55:33.543 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-13 14:55:33.544 +01:00 [INF] Hosting environment: Development
+2025-08-13 14:55:33.544 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-13 15:36:40.195 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-13 15:36:40.368 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-13 15:36:40.371 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-13 15:36:40.373 +01:00 [INF] Hosting environment: Development
+2025-08-13 15:36:40.374 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-13 17:02:00.583 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-13 17:02:00.650 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-13 17:02:00.653 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-13 17:02:00.654 +01:00 [INF] Hosting environment: Development
+2025-08-13 17:02:00.654 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-13 17:46:30.899 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-13 17:46:31.018 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-13 17:46:31.022 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-13 17:46:31.024 +01:00 [INF] Hosting environment: Development
+2025-08-13 17:46:31.024 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-13 20:39:36.744 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-13 20:39:36.859 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-13 20:39:36.865 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-13 20:39:36.867 +01:00 [INF] Hosting environment: Development
+2025-08-13 20:39:36.867 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G/aoc4bee54=",
+  "dgSpecHash": "O4nvHEswEPA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
+  "projectFilePath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kev\\.nuget\\packages\\blazored.localstorage\\4.5.0\\blazored.localstorage.4.5.0.nupkg.sha512",
     "C:\\Users\\kev\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",

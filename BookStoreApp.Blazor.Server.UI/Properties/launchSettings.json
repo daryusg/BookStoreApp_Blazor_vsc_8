@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "BookStoreAppBlazor.Server.UI": {
+    "BookStoreApp.Blazor.Server.UI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

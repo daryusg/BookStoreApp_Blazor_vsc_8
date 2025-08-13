@@ -11,7 +11,7 @@
       "name": "Blazor Server UI",
       "type": "dotnet",
       "request": "launch",
-      "projectPath": "${workspaceFolder}\\BookStoreAppBlazor.Server.UI\\BookStoreAppBlazor.Server.UI.csproj"
+      "projectPath": "${workspaceFolder}\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj"
     }
   ],
   "compounds": [

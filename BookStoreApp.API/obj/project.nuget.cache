@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V64AOOw4umo=",
+  "dgSpecHash": "t5tc0gQuwus=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj",
+  "projectFilePath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kev\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\kev\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
