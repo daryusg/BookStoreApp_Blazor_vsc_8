@@ -43,6 +43,12 @@
         try
         {
             var response = await authService.AuthenticateAsync(LoginModel);
+            if (response)
+            {
+                // Handle successful login, e.g., redirect to home page
+                navManager.NavigateTo("/");
+                return;
+            }
         }
         catch (ApiException ex)
         {

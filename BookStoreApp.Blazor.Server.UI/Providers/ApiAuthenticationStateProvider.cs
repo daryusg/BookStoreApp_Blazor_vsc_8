@@ -1,4 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using Blazored.LocalStorage;
 using BookStoreApp.Blazor.Server.UI.Services.Authentication;
@@ -35,7 +36,8 @@ public class ApiAuthenticationStateProvider : AuthenticationStateProvider //cip.
             return new AuthenticationState(user);
         }
 
-        var claims = tokenContent.Claims;
+        //var claims = tokenContent.Claims;
+        var claims = await GetClaimsAsync(); //cip...40
 
         user = new ClaimsPrincipal(new ClaimsIdentity(claims, "jwt"));
 
@@ -44,16 +46,26 @@ public class ApiAuthenticationStateProvider : AuthenticationStateProvider //cip.
 
     public async Task LoggedInAsync()
     {
+        var claims = await GetClaimsAsync(); //cip...40
         var user = await GetAuthenticationStateAsync();
         var authState = Task.FromResult(user);
         NotifyAuthenticationStateChanged(authState);
     }
-    
+
     public async Task LoggedOutAsync()
     {
         await _localStorage.RemoveItemAsync("authToken");
         var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
         var authState = Task.FromResult(new AuthenticationState(anonymousUser));
         NotifyAuthenticationStateChanged(authState);
+    }
+
+    private async Task<List<Claim>> GetClaimsAsync() //cip...40
+    {
+        var savedToken = await _localStorage.GetItemAsync<string>("authToken");
+        var tokenContent = _jwtSecurityTokenHandler.ReadJwtToken(savedToken);
+        var claims = tokenContent.Claims.ToList();
+        claims.Add(new Claim(ClaimTypes.Name, tokenContent.Subject));
+        return claims.ToList();
     }
 }

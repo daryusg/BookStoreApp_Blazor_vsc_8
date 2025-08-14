@@ -1,17 +1,22 @@
+using Blazored.LocalStorage;
+using BookStoreApp.Blazor.Server.UI.Providers;
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BookStoreApp.Blazor.Server.UI.Services.Authentication;
 
-public class AuthenticationService : IAuthenticationService
+public class AuthenticationService : IAuthenticationService //cip...39
 {
     private readonly IClient _httpClient;
-    private readonly NavigationManager _navManager;
+    private readonly ILocalStorageService _localStorage;
+    private readonly AuthenticationStateProvider _authenticationStateProvider;
 
-    public AuthenticationService(IClient httpClient, NavigationManager navManager)
+    public AuthenticationService(IClient httpClient, ILocalStorageService localStorage, AuthenticationStateProvider authenticationStateProvider)
     {
         _httpClient = httpClient;
-        _navManager = navManager;
+        this._localStorage = localStorage;
+        this._authenticationStateProvider = authenticationStateProvider;
     }
 
     public async Task<bool> AuthenticateAsync(LoginUserDto loginModel)
@@ -21,13 +26,22 @@ public class AuthenticationService : IAuthenticationService
         {
             // Handle successful authentication, e.g., store token, navigate to home page
             //store token
+            await _localStorage.SetItemAsync("accessToken", response.Token);
+
             //change auth state of app
-            return response != null;
+            await ((ApiAuthenticationStateProvider)_authenticationStateProvider).LoggedInAsync();
+
+            return true;
         }
         else
         {
             // Handle authentication failure
             throw new Exception("Authentication failed");
         }
+    }
+
+    public async Task LogoutAsync() //cip...40
+    {
+        await ((ApiAuthenticationStateProvider)_authenticationStateProvider).LoggedOutAsync();
     }
 }
