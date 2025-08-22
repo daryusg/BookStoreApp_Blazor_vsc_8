@@ -26,7 +26,7 @@ public class AuthenticationService : IAuthenticationService //cip...39
         {
             // Handle successful authentication, e.g., store token, navigate to home page
             //store token
-            await _localStorage.SetItemAsync("accessToken", response.Token);
+            await _localStorage.SetItemAsync("authToken", response.Token);
 
             //change auth state of app
             await ((ApiAuthenticationStateProvider)_authenticationStateProvider).LoggedInAsync();

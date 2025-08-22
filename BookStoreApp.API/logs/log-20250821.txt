@@ -1,0 +1,28 @@
+2025-08-21 01:01:26.769 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-21 01:01:26.834 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-21 01:01:26.841 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-21 01:01:26.843 +01:00 [INF] Hosting environment: Development
+2025-08-21 01:01:26.845 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-21 01:02:39.204 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:04:35.126 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:04:47.348 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:05:16.410 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:05:29.769 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:07:27.886 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:07:31.954 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:08:13.673 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:08:18.781 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:09:31.914 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:09:31.994 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:13:29.644 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:14:19.075 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:15:53.097 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:15:57.345 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:32:20.280 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:33:59.671 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:40:33.613 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:44:23.696 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:50:58.113 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 01:53:09.914 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 02:15:42.604 +01:00 [INF] Request to Login with email: user1@bookstore.com
+2025-08-21 08:59:14.491 +01:00 [INF] Application is shutting down...

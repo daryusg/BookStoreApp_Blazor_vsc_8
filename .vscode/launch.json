@@ -1,26 +1,18 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "API with Swagger",
-      "type": "dotnet",
-      "request": "launch",
-      "projectPath": "${workspaceFolder}\\BookStoreApp.API\\BookStoreApp.API.csproj"
-    },
-    {
-      "name": "Blazor Server UI",
-      "type": "dotnet",
-      "request": "launch",
-      "projectPath": "${workspaceFolder}\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj"
-    }
-  ],
-  "compounds": [
-    {
-      "name": "Blazor Server UI + API",
-      "configurations": [
-        "API with Swagger",
-        "Blazor Server UI"
-      ]
-    }
-  ]
+  "name": "Blazor Server UI",
+  "type": "coreclr",
+  "request": "launch",
+  "preLaunchTask": "build-ui",
+  "program": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/bin/Debug/net6.0/BookStoreApp.Blazor.Server.UI.dll",
+  "args": [],
+  "cwd": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI",
+  "env": {
+    "ASPNETCORE_ENVIRONMENT": "Development",
+    "ASPNETCORE_URLS": "https://localhost:7126;http://localhost:5124"
+  },
+  "serverReadyAction": {
+    "action": "openExternally",
+    "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+    "uriFormat": "https://localhost:7126"
+  }
 }

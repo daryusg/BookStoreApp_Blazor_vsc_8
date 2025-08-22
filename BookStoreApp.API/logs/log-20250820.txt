@@ -1,0 +1,125 @@
+2025-08-20 17:34:58.594 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 17:34:58.709 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 17:34:58.716 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 17:34:58.717 +01:00 [INF] Hosting environment: Development
+2025-08-20 17:34:58.718 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 18:38:17.479 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 18:38:17.661 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 18:38:17.669 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 18:38:17.671 +01:00 [INF] Hosting environment: Development
+2025-08-20 18:38:17.671 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 19:23:13.948 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 19:23:14.062 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 19:23:14.068 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 19:23:14.069 +01:00 [INF] Hosting environment: Development
+2025-08-20 19:23:14.069 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 19:27:49.555 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 19:27:49.667 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 19:27:49.675 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 19:27:49.677 +01:00 [INF] Hosting environment: Development
+2025-08-20 19:27:49.677 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 19:31:39.860 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 19:31:40.014 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 19:31:40.019 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 19:31:40.020 +01:00 [INF] Hosting environment: Development
+2025-08-20 19:31:40.021 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 20:40:03.170 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 20:40:03.271 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 20:40:03.278 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 20:40:03.280 +01:00 [INF] Hosting environment: Development
+2025-08-20 20:40:03.283 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 21:37:12.979 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'System.IdentityModel.Tokens.Jwt, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. The system cannot find the file specified.
+File name: 'System.IdentityModel.Tokens.Jwt, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerOptions..ctor()
+   at System.RuntimeType.CreateInstanceOfT()
+   --- End of inner exception stack trace ---
+   at System.RuntimeType.CreateInstanceOfT()
+   at System.Activator.CreateInstance[T]()
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-08-20 21:37:13.202 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'System.IdentityModel.Tokens.Jwt, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'. The system cannot find the file specified.
+File name: 'System.IdentityModel.Tokens.Jwt, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerOptions..ctor()
+   at System.RuntimeType.CreateInstanceOfT()
+   --- End of inner exception stack trace ---
+   at System.RuntimeType.CreateInstanceOfT()
+   at System.Activator.CreateInstance[T]()
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-08-20 21:50:48.370 +01:00 [INF] Application is shutting down...
+2025-08-20 21:53:48.319 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 21:53:48.398 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 21:53:48.404 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 21:53:48.407 +01:00 [INF] Hosting environment: Development
+2025-08-20 21:53:48.410 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 21:59:56.270 +01:00 [INF] Getting weather forecast
+2025-08-20 21:59:56.276 +01:00 [ERR] An error occurred while getting the weather forecast
+System.Exception: This is my logging test exception.
+   at BookStoreApp.API.Controllers.WeatherForecastController.Get() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\Controllers\WeatherForecastController.cs:line 27
+2025-08-20 21:59:56.302 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: This is my logging test exception.
+   at BookStoreApp.API.Controllers.WeatherForecastController.Get() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\Controllers\WeatherForecastController.cs:line 27
+   at lambda_method3(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-08-20 22:06:24.449 +01:00 [INF] Application is shutting down...
+2025-08-20 22:06:35.464 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 22:06:35.536 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 22:06:35.541 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 22:06:35.543 +01:00 [INF] Hosting environment: Development
+2025-08-20 22:06:35.546 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 22:13:41.499 +01:00 [INF] Application is shutting down...
+2025-08-20 22:14:26.452 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 22:14:26.546 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 22:14:26.555 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 22:14:26.559 +01:00 [INF] Hosting environment: Development
+2025-08-20 22:14:26.562 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 22:14:29.954 +01:00 [INF] Getting weather forecast
+2025-08-20 22:58:55.977 +01:00 [INF] Application is shutting down...
+2025-08-20 22:59:46.998 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-20 22:59:47.075 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-20 22:59:47.082 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-20 22:59:47.085 +01:00 [INF] Hosting environment: Development
+2025-08-20 22:59:47.088 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-20 23:18:04.597 +01:00 [INF] Application is shutting down...

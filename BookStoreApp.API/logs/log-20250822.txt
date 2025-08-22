@@ -1,0 +1,5 @@
+2025-08-22 09:39:18.801 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-22 09:39:18.883 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-22 09:39:18.889 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-22 09:39:18.893 +01:00 [INF] Hosting environment: Development
+2025-08-22 09:39:18.896 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API

@@ -29,14 +29,13 @@
             <ValidationMessage For="@(() => LoginModel.Password)" />
         </div>
         <br />
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </EditForm>
 </div>
 
 @code {
     LoginUserDto LoginModel = new();
     string message = string.Empty;
-
 
     public async Task HandleLoginAsync()
     {
@@ -47,7 +46,6 @@
             {
                 // Handle successful login, e.g., redirect to home page
                 navManager.NavigateTo("/");
-                return;
             }
         }
         catch (ApiException ex)
@@ -55,8 +53,8 @@
             if (ex.StatusCode >= 200 && ex.StatusCode <= 299)
             {
                 // Registration successful, redirect to login or home page
-                navManager.NavigateTo("/users/login");
-                return;
+                //navManager.NavigateTo("/users/login");
+                //return;
             }
             message = ex.Message;
         }

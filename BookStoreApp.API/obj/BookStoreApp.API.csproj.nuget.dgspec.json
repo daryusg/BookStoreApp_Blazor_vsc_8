@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj": {}
+    "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj": {
+    "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj",
+        "projectUniqueName": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj",
         "projectName": "BookStoreApp.API",
-        "projectPath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj",
+        "projectPath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\BookStoreApp.API.csproj",
         "packagesPath": "C:\\Users\\kev\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\obj\\",
+        "outputPath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -24,7 +24,7 @@ public class WeatherForecastController : ControllerBase
         _logger.LogInformation("Getting weather forecast"); //cip...10
         try //cip...10
         {
-            throw new Exception("This is my logging test exception."); // Simulating an error for demonstration
+            //throw new Exception("This is my logging test exception."); // Simulating an error for demonstration
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

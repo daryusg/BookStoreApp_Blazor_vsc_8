@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-ui",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/BookStoreApp.Blazor.Server.UI.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
