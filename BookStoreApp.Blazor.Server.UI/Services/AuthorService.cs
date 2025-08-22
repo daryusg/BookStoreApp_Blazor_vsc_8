@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Blazored.LocalStorage;
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 
@@ -11,6 +12,24 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
     {
         this._client = client;
     }
+
+    public async Task<Response<int>> CreateAsync(AuthorCreateDto author) //cip...45
+    {
+        Response<int> response = new() { Success = true };
+
+        try
+        {
+            await GetBearerTokenAsync();
+            await _client.AuthorsPOSTAsync(author);
+        }
+        catch (ApiException apiEx)
+        {
+            response = ConvertApiExceptions<int>(apiEx);
+        }
+        return response;
+    }
+
+
 
     public async Task<Response<List<AuthorReadOnlyDto>>> GetAuthorsAsync()
     {
@@ -26,9 +45,9 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
                 Success = true
             };
         }
-        catch (ApiException ex)
+        catch (ApiException apiEx)
         {
-            response = ConvertApiExceptions<List<AuthorReadOnlyDto>>(ex);
+            response = ConvertApiExceptions<List<AuthorReadOnlyDto>>(apiEx);
         }
         return response;
     }

@@ -10,3 +10,6 @@
 2025-08-22 10:31:01.596 +01:00 [INF] Request to Login with email: admin1@bookstore.com
 2025-08-22 10:36:36.947 +01:00 [INF] Request to Login with email: admin1@bookstore.com
 2025-08-22 10:40:06.491 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-22 13:35:55.918 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-22 18:31:49.334 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-22 18:31:54.505 +01:00 [INF] Request to GetAuthors
