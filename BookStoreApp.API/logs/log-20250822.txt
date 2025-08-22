@@ -3,3 +3,10 @@
 2025-08-22 09:39:18.889 +01:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-08-22 09:39:18.893 +01:00 [INF] Hosting environment: Development
 2025-08-22 09:39:18.896 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-22 09:42:47.727 +01:00 [INF] Request to Login with email: user2@bookstore.com
+2025-08-22 09:43:40.143 +01:00 [INF] Request to Login with email: user2@bookstore.com
+2025-08-22 09:51:36.809 +01:00 [INF] Request to Login with email: user2@bookstore.com
+2025-08-22 09:52:36.311 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-22 10:31:01.596 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-22 10:36:36.947 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-22 10:40:06.491 +01:00 [INF] Request to Login with email: admin1@bookstore.com

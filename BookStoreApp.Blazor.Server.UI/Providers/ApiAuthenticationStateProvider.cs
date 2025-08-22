@@ -1,8 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
-using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using Blazored.LocalStorage;
-using BookStoreApp.Blazor.Server.UI.Services.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BookStoreApp.Blazor.Server.UI.Providers;

@@ -1,6 +1,7 @@
 using Blazored.LocalStorage; //cip...39
 using BookStoreApp.Blazor.Server.UI.Data;
 using BookStoreApp.Blazor.Server.UI.Providers;
+using BookStoreApp.Blazor.Server.UI.Services;
 using BookStoreApp.Blazor.Server.UI.Services.Authentication; //cip...39
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -18,6 +19,7 @@ builder.Services.AddHttpClient<IClient, Client>(client =>
     client.BaseAddress = new Uri("https://localhost:7235");
 }); //cip...37
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>(); //cip...39
+builder.Services.AddScoped<IAuthorService, AuthorService>(); //cip...44
 builder.Services.AddScoped<ApiAuthenticationStateProvider>(); //cip...40
 builder.Services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<ApiAuthenticationStateProvider>()); //cip...39
 
