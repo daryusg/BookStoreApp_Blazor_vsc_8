@@ -52,8 +52,8 @@
         {
             if (ex.StatusCode >= 200 && ex.StatusCode <= 299)
             {
-                // Registration successful, redirect to login or home page
-                //navManager.NavigateTo("/users/login");
+                // Registration successful, redirect home page
+                navManager.NavigateTo("/users/login");
                 //return;
             }
             message = ex.Message;

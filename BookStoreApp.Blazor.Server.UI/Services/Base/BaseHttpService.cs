@@ -19,6 +19,14 @@ public class BaseHttpService //cip...44
 
         switch (apiException.StatusCode)
         {
+            case >= 200 and <= 299:
+                {
+                    return new Response<Guid>
+                    {
+                        Message = "Operation completed successfully.",
+                        Success = true
+                    };
+                }
             case 400: //bad request
                 {
                     return new Response<Guid>
@@ -28,19 +36,19 @@ public class BaseHttpService //cip...44
                         Success = false
                     };
                 }
-            case 404:
-                {
-                    return new Response<Guid>
-                    {
-                        Message = "The requested item could not be found.",
-                        Success = false
-                    };
-                }
             case 401: //copilot
                 {
                     return new Response<Guid>
                     {
                         Message = "You are not authorized to perform this action.",
+                        Success = false
+                    };
+                }
+            case 404:
+                {
+                    return new Response<Guid>
+                    {
+                        Message = "The requested item could not be found.",
                         Success = false
                     };
                 }

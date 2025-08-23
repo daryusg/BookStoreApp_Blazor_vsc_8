@@ -13,3 +13,14 @@
 2025-08-22 13:35:55.918 +01:00 [INF] Request to Login with email: admin1@bookstore.com
 2025-08-22 18:31:49.334 +01:00 [INF] Request to Login with email: admin1@bookstore.com
 2025-08-22 18:31:54.505 +01:00 [INF] Request to GetAuthors
+2025-08-22 19:58:11.912 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-22 19:58:15.692 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:00:35.368 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:14:35.487 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:17:31.247 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:24:20.445 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:26:38.395 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:26:42.916 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:27:48.674 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:29:28.363 +01:00 [INF] Request to GetAuthors
+2025-08-22 20:29:32.739 +01:00 [INF] Request to GetAuthors

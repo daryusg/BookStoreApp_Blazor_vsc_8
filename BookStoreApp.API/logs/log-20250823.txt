@@ -1,0 +1,118 @@
+2025-08-23 15:05:59.660 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 15:05:59.739 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 15:05:59.747 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 15:05:59.751 +01:00 [INF] Hosting environment: Development
+2025-08-23 15:05:59.755 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 15:37:31.143 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 15:37:33.831 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 15:37:38.163 +01:00 [INF] Request to GetAuthors
+2025-08-23 15:38:13.455 +01:00 [INF] Request to GetAuthors
+2025-08-23 15:38:28.133 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:07:21.219 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:08:06.142 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:08:19.343 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:13:10.214 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:13:19.827 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:13:23.598 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:16:07.702 +01:00 [INF] Request to GetAuthors
+2025-08-23 16:16:34.193 +01:00 [INF] Request to GetAuthors
+2025-08-23 17:21:54.763 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 17:25:50.539 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 17:40:02.587 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 17:46:50.542 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 17:48:17.945 +01:00 [INF] Application is shutting down...
+2025-08-23 17:48:56.031 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 17:48:56.103 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 17:48:56.109 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 17:48:56.111 +01:00 [INF] Hosting environment: Development
+2025-08-23 17:48:56.113 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 17:49:28.623 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 17:50:33.526 +01:00 [INF] Request to GetAuthors
+2025-08-23 17:50:56.405 +01:00 [INF] Request to GetAuthors
+2025-08-23 18:22:31.326 +01:00 [INF] Application is shutting down...
+2025-08-23 18:58:42.753 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 18:58:42.845 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 18:58:42.853 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 18:58:42.855 +01:00 [INF] Hosting environment: Development
+2025-08-23 18:58:42.858 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 18:59:14.742 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 18:59:25.277 +01:00 [INF] Request to GetAuthors
+2025-08-23 19:03:56.039 +01:00 [INF] Request to GetAuthors
+2025-08-23 19:03:59.952 +01:00 [INF] Request to GetAuthors
+2025-08-23 19:04:03.678 +01:00 [INF] Request to GetAuthors
+2025-08-23 19:04:19.908 +01:00 [INF] Request to GetAuthors
+2025-08-23 19:06:48.630 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:08:45.036 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 20:11:47.630 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:18:55.971 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:20:26.293 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:40:35.673 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 20:41:09.153 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:48:44.851 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:49:24.952 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:49:41.914 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:50:07.601 +01:00 [INF] Request to GetAuthors
+2025-08-23 20:53:28.684 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:12:32.464 +01:00 [INF] Application is shutting down...
+2025-08-23 21:13:06.877 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 21:13:06.963 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 21:13:06.969 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 21:13:06.973 +01:00 [INF] Hosting environment: Development
+2025-08-23 21:13:06.976 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 21:13:53.677 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:14:53.107 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:17:25.291 +01:00 [INF] Application is shutting down...
+2025-08-23 21:18:13.525 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 21:18:13.614 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 21:18:13.624 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 21:18:13.627 +01:00 [INF] Hosting environment: Development
+2025-08-23 21:18:13.643 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 21:18:26.823 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:24:55.500 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:28:36.178 +01:00 [INF] Application is shutting down...
+2025-08-23 21:41:27.892 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 21:41:27.968 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 21:41:27.974 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 21:41:27.977 +01:00 [INF] Hosting environment: Development
+2025-08-23 21:41:27.979 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 21:41:47.864 +01:00 [INF] Request to Login with email: admin1@bookstore.com
+2025-08-23 21:41:57.749 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:42:04.196 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:46:42.038 +01:00 [INF] Application is shutting down...
+2025-08-23 21:47:40.767 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 21:47:40.846 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 21:47:40.853 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 21:47:40.855 +01:00 [INF] Hosting environment: Development
+2025-08-23 21:47:40.858 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 21:47:42.767 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:47:52.745 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:48:13.823 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:48:42.975 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:50:30.447 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:50:37.764 +01:00 [INF] Request to GetAuthors
+2025-08-23 21:50:52.721 +01:00 [INF] Request to Login with email: user2@bookstore.com
+2025-08-23 21:50:55.659 +01:00 [INF] Request to GetAuthors
+2025-08-23 22:00:20.922 +01:00 [INF] Application is shutting down...
+2025-08-23 22:24:34.842 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 22:24:34.916 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 22:24:34.924 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 22:24:34.926 +01:00 [INF] Hosting environment: Development
+2025-08-23 22:24:34.934 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 22:25:15.174 +01:00 [INF] Request to GetAuthors
+2025-08-23 22:25:58.500 +01:00 [INF] Request to GetAuthors
+2025-08-23 22:33:24.596 +01:00 [INF] Request to GetAuthors
+2025-08-23 22:34:58.837 +01:00 [INF] Application is shutting down...
+2025-08-23 22:36:21.888 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 22:36:21.975 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 22:36:21.982 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 22:36:21.985 +01:00 [INF] Hosting environment: Development
+2025-08-23 22:36:21.990 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 22:36:46.561 +01:00 [INF] Request to GetAuthors
+2025-08-23 22:37:12.497 +01:00 [INF] Application is shutting down...
+2025-08-23 22:38:33.902 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-23 22:38:34.060 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-23 22:38:34.068 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 22:38:34.085 +01:00 [INF] Hosting environment: Development
+2025-08-23 22:38:34.117 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API
+2025-08-23 22:38:56.869 +01:00 [INF] Request to GetAuthors
+2025-08-23 22:42:13.655 +01:00 [INF] Application is shutting down...

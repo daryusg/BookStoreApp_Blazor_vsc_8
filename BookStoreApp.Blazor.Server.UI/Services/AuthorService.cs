@@ -15,7 +15,7 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
 
     public async Task<Response<int>> CreateAsync(AuthorCreateDto author) //cip...45
     {
-        Response<int> response = new() { Success = true };
+        Response<int> response = new();
 
         try
         {
@@ -29,7 +29,42 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
         return response;
     }
 
+    public async Task<Response<int>> EditAsync(int id, AuthorUpdateDto author) //cip...46
+    {
+        Response<int> response = new();
 
+        try
+        {
+            await GetBearerTokenAsync();
+            await _client.AuthorsPUTAsync(id, author);
+        }
+        catch (ApiException apiEx)
+        {
+            response = ConvertApiExceptions<int>(apiEx);
+        }
+        return response;
+    }
+
+    public async Task<Response<AuthorReadOnlyDto>> GetAuthorAsync(int id) //cip...46
+    {
+        Response<AuthorReadOnlyDto> response;
+
+        try
+        {
+            await GetBearerTokenAsync();
+            var data = await _client.AuthorsGETAsync(id);
+            response = new Response<AuthorReadOnlyDto>
+            {
+                Data = data,
+                Success = true
+            };
+        }
+        catch (ApiException apiEx)
+        {
+            response = ConvertApiExceptions<AuthorReadOnlyDto>(apiEx);
+        }
+        return response;
+    }
 
     public async Task<Response<List<AuthorReadOnlyDto>>> GetAuthorsAsync()
     {

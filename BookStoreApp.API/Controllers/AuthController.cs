@@ -102,7 +102,8 @@ namespace BookStoreApp.API.Controllers
                 };
 
                 //return Ok(new { Message = "Login successful." }); //genned by copilot
-                return Accepted(response); // Return 202 Accepted for successful login
+                //return Accepted(response); // Return 202 Accepted for successful login. NOTE: fails in blazor client genned by nswagger
+                return Ok(response); // Return 200 OK for successful login
                 //could also: return response; // due to Task<ActionResult<AuthResponse>>
             }
             catch (Exception ex)

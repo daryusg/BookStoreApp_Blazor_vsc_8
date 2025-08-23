@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/kev/projects_vscode/BookStoreApp/BookStoreApp.Blazor.Server.UI/Pages/Authors/Update.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yc1xVcGRhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/kev/projects_vscode/BookStoreApp/BookStoreApp.Blazor.Server.UI/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
