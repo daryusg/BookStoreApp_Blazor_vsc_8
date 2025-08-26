@@ -1,0 +1,70 @@
+﻿@*cip...47*@
+@page "/authors/details/{id:int}"
+@inject IAuthorService authorService;
+@inject IMapper mapper;
+@inject NavigationManager navManager;
+
+<h3>Author Details</h3>
+
+<EditForm Model="author">
+    <fieldset disabled="true">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <InputText id="firstName" class="form-control" @bind-Value="author.FirstName" />
+            <ValidationMessage For="@(() => author.FirstName)" />
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <InputText id="lastName" class="form-control" @bind-Value="author.LastName" />
+            <ValidationMessage For="@(() => author.LastName)" />
+        </div>
+        <div class="mb-3">
+            <label for="bio" class="form-label">Bio</label>
+            <InputText id="bio" class="form-control" @bind-Value="author.Bio" />
+            <ValidationMessage For="@(() => author.Bio)" />
+        </div>
+    </fieldset>
+
+    <button type="button" class="btn btn-warning" @onclick="NavigateToUpdate">
+        <span class="oi oi-pencil" aria-hidden="true"></span>
+        Edit
+    </button>
+    <button type="button" class="btn btn-secondary" @onclick="NavigateToAuthors">
+        <span class="oi oi-x" aria-hidden="true"></span>
+        Cancel
+    </button>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private AuthorUpdateDto author = new();
+    
+    private Response<int> response = new() { Success = true };
+
+    protected override async Task OnInitializedAsync()
+    {
+        var oldAuthor = await authorService.GetAuthorAsync(id);
+        if (oldAuthor.Success && oldAuthor.Data != null)
+        {
+            author = mapper.Map<AuthorUpdateDto>(oldAuthor.Data);
+        }
+        else
+        {
+            response = new Response<int>
+            {
+                Success = false,
+                Message = oldAuthor.Message
+            };
+        }
+    }
+
+    private void NavigateToAuthors()
+    {
+        navManager.NavigateTo($"/authors");
+    }
+    private void NavigateToUpdate()
+    {
+        navManager.NavigateTo($"/authors/update/{@author.Id}");
+    }
+}

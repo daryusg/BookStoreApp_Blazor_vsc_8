@@ -13,6 +13,10 @@ namespace BookStoreApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ProducesResponseType(typeof(AuthResponse), 200)] //OK
+    [ProducesResponseType(typeof(AuthResponse), 201)] //Created 
+    [ProducesResponseType(typeof(AuthResponse), 202)] //Accepted
+    [ProducesResponseType(204)] //No Content
     public class AuthController : ControllerBase //cip...30
     {
         private readonly ILogger<AuthController> _logger;
@@ -44,7 +48,7 @@ namespace BookStoreApp.API.Controllers
             {
                 var user = _mapper.Map<ApiUser>(userDto); // Assuming ApiUser is your user entity
                 user.UserName = userDto.Email; // Set UserName to Email
-                
+
                 var result = await _userManager.CreateAsync(user, userDto.Password);
 
                 if (result.Succeeded == false)
@@ -102,8 +106,8 @@ namespace BookStoreApp.API.Controllers
                 };
 
                 //return Ok(new { Message = "Login successful." }); //genned by copilot
-                //return Accepted(response); // Return 202 Accepted for successful login. NOTE: fails in blazor client genned by nswagger
-                return Ok(response); // Return 200 OK for successful login
+                return Accepted(response); // Return 202 Accepted for successful login. NOTE: fails in blazor client genned by nswagger...fix [ProducesResponseType(202)]
+                //return Ok(response); // Return 200 OK for successful login
                 //could also: return response; // due to Task<ActionResult<AuthResponse>>
             }
             catch (Exception ex)

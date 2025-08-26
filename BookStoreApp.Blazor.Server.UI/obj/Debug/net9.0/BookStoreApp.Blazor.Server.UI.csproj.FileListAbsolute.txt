@@ -1,0 +1,10 @@
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.csproj.AssemblyReference.cache
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.AssemblyInfoInputs.cache
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.AssemblyInfo.cs
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.csproj.CoreCompileInputs.cache
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.RazorAssemblyInfo.cache
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.RazorAssemblyInfo.cs
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\obj\Debug\net9.0\BookStoreApp.Blazor.Server.UI.sourcelink.json
