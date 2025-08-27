@@ -21,6 +21,7 @@ builder.Services.AddHttpClient<IClient, Client>(client =>
 }); //cip...37
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>(); //cip...39
 builder.Services.AddScoped<IAuthorService, AuthorService>(); //cip...44
+builder.Services.AddScoped<IBookService, BookService>(); //cip...52
 builder.Services.AddAutoMapper(typeof(MapperConfig)); //cip...46 the dependency injection package allows me to add automapper here
 
 builder.Services.AddScoped<ApiAuthenticationStateProvider>(); //cip...40

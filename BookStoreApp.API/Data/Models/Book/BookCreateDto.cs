@@ -23,5 +23,6 @@ public class BookCreateDto //cip...24
     [Range(0, int.MaxValue)]
     public decimal Price { get; set; }
 
+    [Required]
     public int AuthorId { get; set; }
 }
