@@ -3,6 +3,8 @@
 @inject IAuthorService authorService;
 @inject IMapper mapper;
 @inject NavigationManager navManager;
+@*cip...49. vsc won't let me add to below line *@
+@attribute [Authorize(Roles = Roles.Administrator)]
 
 <h3>Edit Author</h3>
 
@@ -53,7 +55,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var oldAuthor = await authorService.GetAuthorAsync(id);
+        var oldAuthor = await authorService.GetAsync(id);
         if (oldAuthor.Success && oldAuthor.Data != null)
         {
             @* newAuthor = new AuthorUpdateDto

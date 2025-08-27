@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Blazored.LocalStorage;
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 
@@ -29,6 +28,22 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
         return response;
     }
 
+    public async Task<Response<int>> DeleteAsync(int id) //cip...48
+    {
+        Response<int> response = new();
+
+        try
+        {
+            await GetBearerTokenAsync();
+            await _client.AuthorsDELETEAsync(id);
+        }
+        catch (ApiException apiEx)
+        {
+            response = ConvertApiExceptions<int>(apiEx);
+        }
+        return response;
+    }
+
     public async Task<Response<int>> EditAsync(int id, AuthorUpdateDto author) //cip...46
     {
         Response<int> response = new();
@@ -45,15 +60,16 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
         return response;
     }
 
-    public async Task<Response<AuthorReadOnlyDto>> GetAuthorAsync(int id) //cip...46
+    //public async Task<Response<AuthorReadOnlyDto>> GetAuthorAsync(int id) //cip...46
+    public async Task<Response<AuthorDetailsDto>> GetAsync(int id) //cip...47
     {
-        Response<AuthorReadOnlyDto> response;
+        Response<AuthorDetailsDto> response;
 
         try
         {
             await GetBearerTokenAsync();
             var data = await _client.AuthorsGETAsync(id);
-            response = new Response<AuthorReadOnlyDto>
+            response = new Response<AuthorDetailsDto>
             {
                 Data = data,
                 Success = true
@@ -61,12 +77,12 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
         }
         catch (ApiException apiEx)
         {
-            response = ConvertApiExceptions<AuthorReadOnlyDto>(apiEx);
+            response = ConvertApiExceptions<AuthorDetailsDto>(apiEx);
         }
         return response;
     }
 
-    public async Task<Response<List<AuthorReadOnlyDto>>> GetAuthorsAsync()
+    public async Task<Response<List<AuthorReadOnlyDto>>> GetAsync()
     {
         Response<List<AuthorReadOnlyDto>> response;
 

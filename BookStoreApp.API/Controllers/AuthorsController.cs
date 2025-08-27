@@ -3,8 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
 using BookStoreApp.API.Data.Models.Author;
 using AutoMapper;
-using BookStoreApp.API.Static;
+using BookStoreApp.API.Static; //cip...49. my extra implementation
 using Microsoft.AspNetCore.Authorization;
+using AutoMapper.QueryableExtensions;
 
 namespace BookStoreApp.API.Controllers
 {
@@ -48,11 +49,15 @@ namespace BookStoreApp.API.Controllers
         // GET: api/Authors/5
         [HttpGet("{id}")]
         //public async Task<ActionResult<Author>> GetAuthor(int id)
-        public async Task<ActionResult<AuthorReadOnlyDto>> GetAuthor(int id) //cip...19
+        //public async Task<ActionResult<AuthorReadOnlyDto>> GetAuthor(int id) //cip...19
+        public async Task<ActionResult<AuthorDetailsDto>> GetAuthor(int id) //cip...47
         {
             try //cip...20
             {
-                var author = await _context.Authors.FindAsync(id);
+                var author = await _context.Authors
+                    .Include(a => a.Books) // Include related books
+                    .ProjectTo<AuthorDetailsDto>(_mapper.ConfigurationProvider) // Project to AuthorDetailsDto
+                    .FirstOrDefaultAsync(q => q.Id == id);
 
                 if (author == null)
                 {
@@ -61,9 +66,9 @@ namespace BookStoreApp.API.Controllers
                 }
 
                 //return author;
-                var authorDto = _mapper.Map<AuthorReadOnlyDto>(author); // Map Author to AuthorReadOnlyDto
-                return Ok(authorDto); // Return the mapped authorDto
-
+                //var authorDto = _mapper.Map<AuthorReadOnlyDto>(author); // Map Author to AuthorReadOnlyDto //cip...47 now not needed as we are using ProjectTo above
+                //return Ok(authorDto); // Return the mapped authorDto
+                return Ok(author); // Return the .ProjectTo<AuthorDetailsDto> result //cip...47
             }
             catch (System.Exception ex)
             {
@@ -75,7 +80,8 @@ namespace BookStoreApp.API.Controllers
         // PUT: api/Authors/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = Roles.Administrator)]
+
         //public async Task<IActionResult> PutAuthor(int id, Author author)
         public async Task<IActionResult> PutAuthor(int id, AuthorUpdateDto authorDto)//cip...19
         {
@@ -127,7 +133,7 @@ namespace BookStoreApp.API.Controllers
         // POST: api/Authors
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = Roles.Administrator)]
         //public async Task<ActionResult<Author>> PostAuthor(Author author)
         public async Task<ActionResult<AuthorCreateDto>> PostAuthor(AuthorCreateDto authorDto) //cip...19
         {
@@ -157,7 +163,7 @@ namespace BookStoreApp.API.Controllers
 
         // DELETE: api/Authors/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = Roles.Administrator)]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
             try //cip...20
@@ -169,8 +175,17 @@ namespace BookStoreApp.API.Controllers
                     return NotFound();
                 }
 
-                _context.Authors.Remove(author);
-                await _context.SaveChangesAsync();
+                try //cip...48 added by me to handle deletion failure eg fk violation
+                {
+                    _context.Authors.Remove(author);
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    var errMsg = $"An error occurred while deleting ({nameof(DeleteAuthor)} with id = {id}).{Environment.NewLine}{ex.Message}";
+                    _logger.LogError(ex, errMsg);
+                    return StatusCode(500, errMsg /*Messages.Error500Message*/); // Return a 500 Internal Server Error response. NOTE: currently handled in BaseHttpService.ConvertApiExceptions as "Something went wrong, please try again."
+                }
 
                 return NoContent();
             }

@@ -25,6 +25,29 @@
         </div>
     </fieldset>
 
+    @if (author.Books != null && author.Books.Any())
+    {
+        <h4>Books by this Author</h4>
+        <ul>
+            @foreach (var book in author.Books)
+            {
+                @*cio...47 https://getbootstrap.com/docs/5.3/components/card/*@
+                <div class="@book.Image" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="@book.Title">
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Title: @book.Price.ToString("C")</h5>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">View book</a>
+                    </div>
+                </div>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No books found for this author.</p>
+    }
+
     <button type="button" class="btn btn-warning" @onclick="NavigateToUpdate">
         <span class="oi oi-pencil" aria-hidden="true"></span>
         Edit
@@ -38,25 +61,18 @@
 @code {
     [Parameter]
     public int id { get; set; }
-    private AuthorUpdateDto author = new();
+    //private AuthorReadOnlyDto author = new();
+    private AuthorDetailsDto author = new();
     
     private Response<int> response = new() { Success = true };
 
     protected override async Task OnInitializedAsync()
     {
-        var oldAuthor = await authorService.GetAuthorAsync(id);
-        if (oldAuthor.Success && oldAuthor.Data != null)
-        {
-            author = mapper.Map<AuthorUpdateDto>(oldAuthor.Data);
-        }
+        var response = await authorService.GetAsync(id);
+        if (response.Success && response.Data != null)
+            author = response.Data;
         else
-        {
-            response = new Response<int>
-            {
-                Success = false,
-                Message = oldAuthor.Message
-            };
-        }
+            response.Success = false;
     }
 
     private void NavigateToAuthors()

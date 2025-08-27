@@ -2,6 +2,8 @@
 @page "/authors/create/"
 @inject IAuthorService authorService;
 @inject NavigationManager navManager;
+@*cip...49. vsc won't let me add to below line *@
+@attribute [Authorize(Roles = Roles.Administrator)]
 
 <h3>Create New Author</h3>
 

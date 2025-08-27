@@ -8,5 +8,6 @@ public class MapperConfig : Profile //cip...46
     public MapperConfig()
     {
         CreateMap<AuthorReadOnlyDto, AuthorUpdateDto>().ReverseMap();
+        CreateMap<AuthorDetailsDto, AuthorUpdateDto>().ReverseMap();
     }
 }
