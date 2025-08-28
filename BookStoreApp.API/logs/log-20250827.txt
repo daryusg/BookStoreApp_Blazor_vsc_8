@@ -1562,3 +1562,8 @@ Error Number:547,State:0,Class:16
 2025-08-27 16:59:17.028 +01:00 [INF] Request to GetAuthors
 2025-08-27 18:13:23.509 +01:00 [INF] Request to Login with email: admin1@bookstore.com
 2025-08-27 19:14:53.858 +01:00 [INF] Application is shutting down...
+2025-08-27 19:18:13.482 +01:00 [INF] Now listening on: https://localhost:7235
+2025-08-27 19:18:13.573 +01:00 [INF] Now listening on: http://localhost:5058
+2025-08-27 19:18:13.583 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-27 19:18:13.589 +01:00 [INF] Hosting environment: Development
+2025-08-27 19:18:13.595 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API

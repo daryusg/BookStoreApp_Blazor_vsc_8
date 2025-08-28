@@ -12,6 +12,7 @@ public class ApiAuthenticationStateProvider : AuthenticationStateProvider //cip.
 
     public ApiAuthenticationStateProvider(ILocalStorageService localStorage)
     {
+        Console.WriteLine("[DEBUG] ApiAuthenticationStateProvider constructed.");
         _localStorage = localStorage;
     }
 
