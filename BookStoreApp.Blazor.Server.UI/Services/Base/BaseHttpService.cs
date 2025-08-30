@@ -31,7 +31,7 @@ public class BaseHttpService //cip...44
                 {
                     return new Response<Guid>
                     {
-                        Message = "Validation errors have occurred.",
+                        Message = string.Concat($"Validation errors have occurred. { Environment.NewLine }{ apiException.Message }"),
                         ValidationErrors = apiException.Response,
                         Success = false
                     };

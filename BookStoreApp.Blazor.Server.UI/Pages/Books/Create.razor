@@ -47,7 +47,7 @@
         <label for="author" class="form-label">Author</label>
         <InputSelect id="author" class="form-select" @bind-Value="newBook.AuthorId">
             <option value="">-- Select Author --</option>
-            @foreach (var author in Authors)
+            @foreach (var author in authors)
             {
                 <option value="@author.Id">@author.FirstName @author.LastName</option>
             }
@@ -80,7 +80,7 @@
 
 @code {
     private BookCreateDto newBook = new();
-    private List<AuthorReadOnlyDto> Authors = new();
+    private List<AuthorReadOnlyDto> authors = new();
     private string UploadFileWarning = string.Empty;
     private string img = string.Empty;
     private int imgWidth = 100;
@@ -144,7 +144,7 @@
         var authorsResponse = await authorService.GetAsync();
         if (authorsResponse.Success)
         {
-            Authors = authorsResponse.Data;
+            authors = authorsResponse.Data;
         }
     }
 

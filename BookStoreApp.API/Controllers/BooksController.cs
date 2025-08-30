@@ -79,6 +79,20 @@ namespace BookStoreApp.API.Controllers
                 return NotFound();
             }
 
+            if (!string.IsNullOrEmpty(bookDto.ImageData)) //cip...57
+            {
+                //create the new image file
+                bookDto.Image = CreateFile(bookDto.ImageData, bookDto.OriginalImageName);
+
+                //delete the new image file
+                var picName = Path.GetFileName(book.Image);
+                var path = $"{_webHostEnvironment.WebRootPath}\\images\\bookcovers\\{picName}";
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+            }
+
             _mapper.Map(bookDto, book); // Map BookUpdateDto to Book
             _context.Entry(book).State = EntityState.Modified;
 

@@ -82,9 +82,7 @@
         response = await authorService.EditAsync(id, newAuthor);
         if (response.Success)
         {
-            // Navigate to the authors list or show a success message
-            // For example:
-            navManager.NavigateTo("/authors");
+            NavigateToAuthors();
         }
         else
         {

@@ -1,5 +1,191 @@
-﻿<h3>Update</h3>
+﻿@*cip...57*@
+@page "/books/update/{id:int}"
+@inject IBookService bookService;
+@inject IAuthorService authorService;
+@inject IMapper mapper;
+@inject NavigationManager navManager;
+@*cip...49 (here because vsc won't let me add this comment to below line) *@
+@attribute [Authorize(Roles = Roles.Administrator)]
+
+<h3>Edit book</h3>
+
+@if (!response.Success)
+{
+    <div class="alert alert-danger">
+        <h4>@response.Message</h4>
+    </div>
+}
+
+<EditForm Model="newBook" OnValidSubmit="HandleUpdate">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <InputText id="title" class="form-control" @bind-Value="newBook.Title" />
+        <ValidationMessage For="@(() => newBook.Title)" />
+    </div>
+    <div class="mb-3">
+        <label for="isbn" class="form-label">ISBN</label>
+        <InputText id="isbn" class="form-control" @bind-Value="newBook.Isbn" />
+        <ValidationMessage For="@(() => newBook.Isbn)" />
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <InputNumber id="price" class="form-control" @bind-Value="newBook.Price" />
+        <ValidationMessage For="@(() => newBook.Price)" />
+    </div>
+    <div class="mb-3"> @*cip...55*@
+        <label for="year" class="form-label">Year</label>
+        <InputNumber id="year" class="form-control" @bind-Value="newBook.Year" />
+        <ValidationMessage For="@(() => newBook.Year)" />
+    </div>
+    <div class="mb-3">
+        <label for="summary" class="form-label">Summary</label>
+        <InputTextArea id="summary" class="form-control" @bind-Value="newBook.Summary" />
+        <ValidationMessage For="@(() => newBook.Summary)" />
+    </div>
+    <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <InputSelect id="author" class="form-select" @bind-Value="newBook.AuthorId">
+            <option value="">-- Select Author --</option>
+            @foreach (var author in authors)
+            {
+                <option value="@author.Id">@author.FirstName @author.LastName</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => newBook.AuthorId)" />
+    </div>
+    <br />
+    <div class="mb-3">
+        <label>Book Cover Photo</label>
+        <div>
+            <InputFile OnChange="HandleFileSelection" />
+            @if (!string.IsNullOrWhiteSpace(img))
+            {
+                <img src="@img" width=@imgWidth height=@imgHeight class="img-thumbnail" />
+            }
+            <p class="text-danger">@UploadFileWarning</p>
+            @*<ValidationMessage For="@(() => newBook.Image)" />*@
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        <span class="oi oi-pencil" aria-hidden="true"></span>
+        Save
+    </button>
+    <button type="button" class="btn btn-secondary" @onclick="NavigateToList">
+        <span class="oi oi-x" aria-hidden="true"></span>
+        Cancel
+    </button>
+</EditForm>
 
 @code {
+    [Parameter]
+    public int id { get; set; }
+    private BookUpdateDto newBook = new();
+    private List<AuthorReadOnlyDto> authors = new();
 
+    private Response<int> response = new() { Success = true };
+
+    private string UploadFileWarning = string.Empty;
+    private string img = string.Empty;
+    private int imgWidth = 286;
+    private int imgHeight = 164;
+
+
+    private async Task HandleFileSelection(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        var maxFileSize = 1024 * 1024 * 5; // 2MB limit
+
+        if (file != null)
+        {
+            var extension = Path.GetExtension(file.Name).ToLowerInvariant();
+            var permittedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!permittedExtensions.Contains(extension))
+            {
+                UploadFileWarning = "Invalid file type. Please upload an image file (jpg, jpeg, png, gif).";
+                newBook.ImageData = null;
+                return;
+            }
+            else if (file.Size > maxFileSize)
+            {
+                UploadFileWarning = $"File size exceeds the {(maxFileSize / (1024 * 1024))}MB limit.";
+                newBook.ImageData = null;
+                return;
+            }
+            else
+            {
+                @* var buffer = new byte[file.Size];
+                await file.OpenReadStream(maxFileSize).ReadAsync(buffer);
+                string imageType = file.ContentType;
+                string base64String = Convert.ToBase64String(buffer);
+                newBook.Image = base64String;
+                img = $"data:{imageType};base64,{base64String}"; *@
+
+                //chatgpt rewrite to fix image upload issues`
+                string imageType = file.ContentType;
+                // Limit the max image size for performance
+                var resizedImage = await file.RequestImageFileAsync(imageType, imgWidth, imgHeight);
+
+                using var stream = resizedImage.OpenReadStream(maxFileSize); // xMB limit
+                using var ms = new MemoryStream();
+                await stream.CopyToAsync(ms);
+
+                var imageBytes = ms.ToArray();
+                string base64String = Convert.ToBase64String(imageBytes);
+                newBook.ImageData = base64String;
+                newBook.OriginalImageName = file.Name;
+                img = $"data:{imageType};base64,{base64String}";
+
+                UploadFileWarning = string.Empty; // Clear any previous warnings
+                Console.WriteLine($"[DEBUG] Image type: {imageType}");
+                Console.WriteLine($"[DEBUG] Image base64: {base64String.Substring(0, 20)}...");
+            }
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        //load the selected book
+        var oldBook = await bookService.GetAsync(id);
+        if (oldBook.Success && oldBook.Data != null)
+        {
+            newBook = mapper.Map<BookUpdateDto>(oldBook.Data);
+            img = newBook.Image;
+
+            //load the authors
+            var authorsResponse = await authorService.GetAsync();
+            if (authorsResponse.Success)
+            {
+                authors = authorsResponse.Data;
+            }
+        }
+        else
+        {
+            response = new Response<int>
+            {
+                Success = false,
+                Message = oldBook.Message
+            };
+        }
+    }
+
+    private async Task HandleUpdate()
+    {
+        response = await bookService.EditAsync(id, newBook);
+        if (response.Success)
+        {
+            NavigateToList();
+        }
+        else
+        {
+            // Handle the error (e.g., show an error message)
+        }
+    }
+
+    private void NavigateToList()
+    {
+        navManager.NavigateTo("/books");
+    }
 }

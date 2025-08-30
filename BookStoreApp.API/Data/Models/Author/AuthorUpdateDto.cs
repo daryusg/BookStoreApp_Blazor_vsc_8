@@ -10,7 +10,6 @@ public class AuthorUpdateDto : BaseDto //cip...19
     [Required]
     [StringLength(50)]
     public string LastName { get; set; }
-    [Required]
     [StringLength(250)]
-    public string Bio { get; set; }
+    public string? Bio { get; set; }
 }

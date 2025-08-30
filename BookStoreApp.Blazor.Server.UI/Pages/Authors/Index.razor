@@ -69,7 +69,7 @@ else
     private async Task DeleteAsync(int id)
     {
         var author = Authors.First(a => a.Id == id);
-        var confirm = await jsRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to delete author: {author.FirstName} {author.LastName}?");
+        var confirm = await jsRuntime.InvokeAsync<bool>("confirm", $"Are you sure you want to delete: {author.FirstName} {author.LastName}?");
         if (confirm)
         {
             @*Yes*@
