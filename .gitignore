@@ -1,0 +1,74 @@
+#################################
+## .NET / C# Build Artifacts   ##
+#################################
+
+# Build results
+bin/
+obj/
+out/
+artifacts/
+
+# Rider & VS Code folders
+.idea/
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# ASP.NET Core secrets
+secrets.json
+
+# Logs
+*.log
+BookStoreApp.API/logs/
+
+# Environment files
+.env
+.env.*.local
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# dotCover, ReSharper, and other JetBrains tools
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.dotCover
+
+# VS for Windows and Mac
+.vs/
+*.csproj.user
+
+# Test results
+TestResults/
+*.trx
+
+# Coverage reports
+coverage/
+*.coverage
+*.coveragexml
+
+# SQLite / LiteDB / Local test DBs (optional)
+*.db
+*.sqlite
+*.ldb
+
+#################################
+## Custom Ignores              ##
+#################################
+
+# Ignore logs folder in API project
+BookStoreApp.API/logs/
+
+# Ignore production settings file
+BookStoreApp.API/appsettings.Production.json
+
+# Ignore images folder
+BookStoreApp.API/wwwroot/images/

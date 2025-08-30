@@ -956,11 +956,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
+      "projectUniqueName": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
       "projectName": "BookStoreApp.Blazor.Server.UI",
-      "projectPath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
+      "projectPath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\BookStoreApp.Blazor.Server.UI.csproj",
       "packagesPath": "C:\\Users\\kev\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\obj\\",
+      "outputPath": "C:\\Users\\kev\\projects_vscode\\BookStoreApp\\BookStoreApp.Blazor.Server.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

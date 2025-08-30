@@ -60,7 +60,6 @@ public class BookService : BaseHttpService, IBookService //cip...52
         return response;
     }
 
-    //public async Task<Response<BookReadOnlyDto>> GetBookAsync(int id)
     public async Task<Response<BookDetailsDto>> GetAsync(int id)
     {
         Response<BookDetailsDto> response;

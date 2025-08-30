@@ -1,4 +1,4 @@
-﻿@*cip...54*@
+﻿@*cip...54,55*@
 @page "/books/create/"
 @inject IBookService bookService;
 @inject IAuthorService authorService;
@@ -14,6 +14,7 @@
         <h4>@response.Message</h4>
     </div>
 }
+
 <EditForm Model="newBook" OnValidSubmit="HandleCreate">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -32,6 +33,11 @@
         <InputNumber id="price" class="form-control" @bind-Value="newBook.Price" />
         <ValidationMessage For="@(() => newBook.Price)" />
     </div>
+    <div class="mb-3"> @*cip...55*@
+        <label for="year" class="form-label">Year</label>
+        <InputNumber id="year" class="form-control" @bind-Value="newBook.Year" />
+        <ValidationMessage For="@(() => newBook.Year)" />
+    </div>
     <div class="mb-3">
         <label for="summary" class="form-label">Summary</label>
         <InputTextArea id="summary" class="form-control" @bind-Value="newBook.Summary" />
@@ -39,7 +45,7 @@
     </div>
     <div class="mb-3">
         <label for="author" class="form-label">Author</label>
-        <InputSelect id="author" class="form-control" @bind-Value="newBook.AuthorId">
+        <InputSelect id="author" class="form-select" @bind-Value="newBook.AuthorId">
             <option value="">-- Select Author --</option>
             @foreach (var author in Authors)
             {
@@ -64,9 +70,9 @@
 
     <button type="submit" class="btn btn-primary">
         <span class="oi oi-pencil" aria-hidden="true"></span>
-        Create Book
+        Save
     </button>
-    <button type="button" class="btn btn-secondary" @onclick="NavigateToBooks">
+    <button type="button" class="btn btn-secondary" @onclick="NavigateToList">
         <span class="oi oi-x" aria-hidden="true"></span>
         Cancel
     </button>
@@ -93,12 +99,12 @@
             if (!permittedExtensions.Contains(extension))
             {
                 UploadFileWarning = "Invalid file type. Please upload an image file (jpg, jpeg, png, gif).";
-                newBook.Image = null;
+                newBook.ImageData = null;
             }
             else if (file.Size > maxFileSize)
             {
                 UploadFileWarning = $"File size exceeds the {(maxFileSize / (1024 * 1024))}MB limit.";
-                newBook.Image = null;
+                newBook.ImageData = null;
             }
             else
             {
@@ -120,7 +126,8 @@
 
                 var imageBytes = ms.ToArray();
                 string base64String = Convert.ToBase64String(imageBytes);
-
+                newBook.ImageData = base64String;
+                newBook.OriginalImageName = file.Name;
                 img = $"data:{imageType};base64,{base64String}";
 
                 UploadFileWarning = string.Empty; // Clear any previous warnings
@@ -146,9 +153,7 @@
         response = await bookService.CreateAsync(newBook);
         if (response.Success)
         {
-            // Navigate to the authors list or show a success message
-            // For example:
-            NavigateToBooks();
+            NavigateToList();
         }
         else
         {
@@ -156,7 +161,7 @@
         }
     }
 
-    private void NavigateToBooks()
+    private void NavigateToList()
     {
         navManager.NavigateTo("/books");
     }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
 using AutoMapper;
 using BookStoreApp.API.Data.Models.Book;
+using BookStoreApp.API.Data.Models.User;//cip...55. my gettting nswag code gen for error handling up-to-date
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
 using BookStoreApp.API.Static;
@@ -17,11 +18,13 @@ namespace BookStoreApp.API.Controllers
     {
         private readonly BookStoreDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _webHostEnvironment; //cip...55
 
-        public BooksController(BookStoreDbContext context, IMapper mapper) //cip...24
+        public BooksController(BookStoreDbContext context, IMapper mapper, IWebHostEnvironment webHostEnvironment) //cip...24, 55
         {
             _context = context;
             this._mapper = mapper;
+            this._webHostEnvironment = webHostEnvironment;
         }
 
         // GET: api/Books
@@ -48,7 +51,7 @@ namespace BookStoreApp.API.Controllers
             //var book = await _context.Books.FindAsync(id);
             var bookDto = await _context.Books
                 .Include(q => q.Author)
-                .ProjectTo<BookDetailsDto>(_mapper.ConfigurationProvider) // Use AutoMapper to project directly to BookReadOnlyDto
+                .ProjectTo<BookDetailsDto>(_mapper.ConfigurationProvider) // Use AutoMapper to project directly to BookDetailsDto
                 .FirstOrDefaultAsync(b => b.Id == id);
 
             if (bookDto == null)
@@ -105,6 +108,7 @@ namespace BookStoreApp.API.Controllers
         public async Task<ActionResult<BookCreateDto>> PostBook(BookCreateDto bookDto)
         {
             var book = _mapper.Map<Book>(bookDto); // Map BookCreateDto to Book
+            book.Image = CreateFile(bookDto.ImageData, bookDto.OriginalImageName); //cip...55
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
 
@@ -126,6 +130,22 @@ namespace BookStoreApp.API.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        private string CreateFile(string imageBase64, string imageName) //cip...55
+        {
+            var url = HttpContext.Request.Host.Value;
+            var ext = Path.GetExtension(imageName);
+            var fileName = $"{Guid.NewGuid()}{ext}";
+            var path = $"{_webHostEnvironment.WebRootPath}\\images\\bookcovers\\{fileName}";
+
+            byte[] image = Convert.FromBase64String(imageBase64);
+
+            var fileStream = System.IO.File.Create(path);
+            fileStream.Write(image, 0, image.Length);
+            fileStream.Close();
+
+            return $"https://{url}//images//bookcovers//{fileName}";
         }
 
         private async Task<bool> BookExistsAsync(int id)

@@ -17,7 +17,8 @@ public class BookCreateDto //cip...24
     [StringLength(250, MinimumLength = 10)]
     public string Summary { get; set; }
 
-    public string Image { get; set; }
+    public string ImageData { get; set; } //cip...55. rename (note:regen nswag)
+    public string OriginalImageName { get; set; } //cip...55. (note:regen nswag)
 
     [Required]
     [Range(0, int.MaxValue)]
