@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
 using BookStoreApp.API.Data.Models.Author;
-using BookStoreApp.API.Data.Models.User;//cip...55. my gettting nswag code gen for error handling up-to-date
 using AutoMapper;
 using BookStoreApp.API.Static; //cip...49. my extra implementation
 using Microsoft.AspNetCore.Authorization;

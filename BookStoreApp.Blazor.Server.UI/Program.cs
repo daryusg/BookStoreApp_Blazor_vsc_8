@@ -28,15 +28,6 @@ builder.Services.AddScoped<IAuthorService, AuthorService>(); //cip...44
 builder.Services.AddScoped<IBookService, BookService>(); //cip...52
 builder.Services.AddAutoMapper(typeof(MapperConfig)); //cip...46 the dependency injection package allows me to add automapper here
 
-// builder.Services.AddServerSideBlazor() //cip...55 chatgpt fix for file upload probs
-//     .AddHubOptions(options =>
-//     {
-//         options.ClientTimeoutInterval = TimeSpan.FromMinutes(5);
-//         options.KeepAliveInterval = TimeSpan.FromSeconds(30);
-//         options.HandshakeTimeout = TimeSpan.FromSeconds(30);
-//         options.MaximumReceiveMessageSize = 1024 * 1024 * 5; // 🔥 Allow up to 5MB
-//     });
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,0 +1,98 @@
+﻿@*cip...56*@
+@page "/books/details/{id:int}"
+@inject IBookService bookService;
+@inject IAuthorService authorService;
+@inject NavigationManager navManager;
+@*cip...49 (here because vsc won't let me add this comment to below line) *@
+@attribute [Authorize(Roles = Roles.Administrator)]
+
+<h3>Book Details</h3>
+
+@if (!response.Success)
+{
+    <div class="alert alert-danger">
+        <h4>@response.Message</h4>
+    </div>
+}
+
+<EditForm Model="book">
+    <fieldset disabled="true">
+        <div class="mb-3">
+            <label>Book Cover Photo</label>
+            <div>
+                <img src=@book.Image width=@imgWidth height=@imgHeight class="img-thumbnail" />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <InputText id="title" class="form-control" @bind-Value="book.Title" />
+            <ValidationMessage For="@(() => book.Title)" />
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <InputText id="author" class="form-control" @bind-Value="book.AuthorName" />
+            <ValidationMessage For="@(() => book.AuthorName)" />
+        </div>
+        <div class="mb-3">
+            <label for="isbn" class="form-label">ISBN</label>
+            <InputText id="isbn" class="form-control" @bind-Value="book.Isbn" />
+            <ValidationMessage For="@(() => book.Isbn)" />
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <InputNumber id="price" class="form-control" @bind-Value="book.Price" />
+            <ValidationMessage For="@(() => book.Price)" />
+        </div>
+        <div class="mb-3"> @*cip...55*@
+            <label for="year" class="form-label">Year</label>
+            <InputNumber id="year" class="form-control" @bind-Value="book.Year" />
+            <ValidationMessage For="@(() => book.Year)" />
+        </div>
+        <div class="mb-3">
+            <label for="summary" class="form-label">Summary</label>
+            <InputTextArea id="summary" class="form-control" @bind-Value="book.Summary" />
+            <ValidationMessage For="@(() => book.Summary)" />
+        </div>
+    </fieldset>
+
+    <button type="button" class="btn btn-warning" @onclick="NavigateToUpdate">
+        <span class="oi oi-pencil" aria-hidden="true"></span>
+        Edit
+    </button>
+    <button type="button" class="btn btn-secondary" @onclick="NavigateToList">
+        <span class="oi oi-x" aria-hidden="true"></span>
+        Cancel
+    </button>
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private int imgWidth = 100;
+    private int imgHeight = 100;
+
+    //private AuthorReadOnlyDto author = new();
+    private BookDetailsDto book = new();
+
+    private Response<int> response = new() { Success = true };
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await bookService.GetAsync(id);
+        if (response.Success && response.Data != null)
+            book = response.Data;
+        else
+            response.Success = false;
+    }
+
+    private void NavigateToList()
+    {
+        navManager.NavigateTo($"/books");
+    }
+    private void NavigateToUpdate()
+    {
+        navManager.NavigateTo($"/books/update/{book.Id}");
+    }
+}

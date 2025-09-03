@@ -1,18 +1,32 @@
 {
-  "name": "Blazor Server UI",
-  "type": "coreclr",
-  "request": "launch",
-  "preLaunchTask": "build-ui",
-  "program": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/bin/Debug/net6.0/BookStoreApp.Blazor.Server.UI.dll",
-  "args": [],
-  "cwd": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI",
-  "env": {
-    "ASPNETCORE_ENVIRONMENT": "Development",
-    "ASPNETCORE_URLS": "https://localhost:7126;http://localhost:5124"
-  },
-  "serverReadyAction": {
-    "action": "openExternally",
-    "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
-    "uriFormat": "https://localhost:7126"
-  }
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Blazor Server UI",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-ui",
+      "program": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/bin/Debug/net6.0/BookStoreApp.Blazor.Server.UI.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:7126;http://localhost:5124"
+      }
+    },
+    {
+      "name": "Blazor WebAssembly UI (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:7079",
+      "webRoot": "${workspaceFolder}/BookStoreApp.Blazor.WebAssembly.UI/wwwroot",
+      "preLaunchTask": "build-wasm"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run Server + WebAssembly UI",
+      "configurations": ["Blazor Server UI", "Blazor WebAssembly UI (Chrome)"]
+    }
+  ]
 }

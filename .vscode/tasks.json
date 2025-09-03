@@ -10,6 +10,16 @@
         "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/BookStoreApp.Blazor.Server.UI.csproj"
       ],
       "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-wasm",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/BookStoreApp.Blazor.WebAssembly.UI/BookStoreApp.Blazor.WebAssembly.UI.csproj"
+      ],
+      "problemMatcher": "$msCompile"
     }
   ]
 }

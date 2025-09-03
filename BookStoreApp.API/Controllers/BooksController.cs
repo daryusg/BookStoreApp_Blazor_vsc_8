@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
 using AutoMapper;
 using BookStoreApp.API.Data.Models.Book;
-using BookStoreApp.API.Data.Models.User;//cip...55. my gettting nswag code gen for error handling up-to-date
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
 using BookStoreApp.API.Static;

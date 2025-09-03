@@ -1,0 +1,11 @@
+﻿@namespace BookStoreApp.Blazor.WebAssembly.UI.Shared
+
+@inject NavigationManager Navigation //cip...40
+
+@code {
+    protected override void OnInitialized()
+    {
+        // Redirect to the login page
+        Navigation.NavigateTo("users/login");
+    }
+}
