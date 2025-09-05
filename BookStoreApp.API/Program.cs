@@ -1,5 +1,6 @@
 using BookStoreApp.API.Configurations;
 using BookStoreApp.API.Data;
+using BookStoreApp.API.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,9 @@ builder.Services.AddAutoMapper(typeof(MapperConfig)); //cip...19 the dependency 
 builder.Services.AddIdentityCore<ApiUser>() //cip...28
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<BookStoreDbContext>(); //cip...27
+
+builder.Services.AddScoped<IAuthorsRepository, AuthorsRepository>(); //cip...64
+builder.Services.AddScoped<IBooksRepository, BooksRepository>(); //cip...64
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
