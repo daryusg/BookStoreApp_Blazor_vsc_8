@@ -68,7 +68,8 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
         try
         {
             await GetBearerTokenAsync();
-            var data = await _client.AuthorsGETAsync(id);
+            //var data = await _client.AuthorsGETAsync(id);
+            var data = await _client.AuthorsGET2Async(id); //cip...65
             response = new Response<AuthorDetailsDto>
             {
                 Data = data,
@@ -89,7 +90,8 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
         try
         {
             await GetBearerTokenAsync();
-            var data = await _client.AuthorsAllAsync();
+            //var data = await _client.AuthorsAllAsync();
+            var data = await _client.AuthorsGET2Async(); //cip...65
             response = new Response<List<AuthorReadOnlyDto>>
             {
                 Data = data.ToList(),

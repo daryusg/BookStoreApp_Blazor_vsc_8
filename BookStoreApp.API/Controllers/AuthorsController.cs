@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
-using BookStoreApp.API.Data.Models.Author;
 using AutoMapper;
 using BookStoreApp.API.Static; //cip...49. my extra implementation
 using Microsoft.AspNetCore.Authorization;
-using AutoMapper.QueryableExtensions;
 using BookStoreApp.API.Repositories;
+using BookStoreApp.API.Models.Author;
+using BookStoreApp.API.Models;
 
 namespace BookStoreApp.API.Controllers
 {
@@ -31,15 +31,17 @@ namespace BookStoreApp.API.Controllers
         // GET: api/Authors
         [HttpGet]
         //public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
-        public async Task<ActionResult<IEnumerable<AuthorReadOnlyDto>>> GetAuthors() //cip...19
+        //public async Task<ActionResult<IEnumerable<AuthorReadOnlyDto>>> GetAuthors() //cip...19
+        public async Task<ActionResult<VirtualiseResponse<AuthorReadOnlyDto>>> GetAuthors([FromQuery]QueryParameters queryParameters) //cip...65
         {
             _logger.LogInformation($"Request to {nameof(GetAuthors)}"); //cip...20
             try //cip...20
             {
                 //return await _context.Authors.ToListAsync();
                 //var authors = await _authorsRepository.Authors.ToListAsync();
-                var authors = await _authorsRepository.GetAllAsync(); //cip...64
-                var authorsDto = _mapper.Map<IEnumerable<AuthorReadOnlyDto>>(authors);
+                //var authors = await _authorsRepository.GetAllAsync(); //cip...64
+                var authorsDto = await _authorsRepository.GetAllAsync<AuthorReadOnlyDto>(queryParameters); //cip...65
+                //var authorsDto = _mapper.Map<IEnumerable<AuthorReadOnlyDto>>(authors);
                 return Ok(authorsDto); // Return the mapped list of authorsDto
             }
             catch (System.Exception ex)

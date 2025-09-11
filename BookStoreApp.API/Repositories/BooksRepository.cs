@@ -1,7 +1,7 @@
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BookStoreApp.API.Data;
-using BookStoreApp.API.Data.Models.Book;
+using BookStoreApp.API.Models.Book;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreApp.API.Repositories;
@@ -11,7 +11,7 @@ public class BooksRepository : GenericRepository<Book>, IBooksRepository //cip..
     private readonly BookStoreDbContext _context;
     private readonly IMapper _mapper;
 
-    public BooksRepository(BookStoreDbContext context, IMapper mapper) : base(context)
+    public BooksRepository(BookStoreDbContext context, IMapper mapper) : base(context, mapper)
     {
         this._context = context;
         this._mapper = mapper;

@@ -1,5 +1,5 @@
 using BookStoreApp.API.Data;
-using BookStoreApp.API.Data.Models.Book;
+using BookStoreApp.API.Models.Book;
 
 namespace BookStoreApp.API.Repositories;
 

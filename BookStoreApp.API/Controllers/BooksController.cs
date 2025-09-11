@@ -2,11 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
 using AutoMapper;
-using BookStoreApp.API.Data.Models.Book;
-using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
 using BookStoreApp.API.Static;
 using BookStoreApp.API.Repositories;
+using BookStoreApp.API.Models.Book;
 
 namespace BookStoreApp.API.Controllers
 {

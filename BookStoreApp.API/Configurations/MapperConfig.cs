@@ -1,8 +1,8 @@
 using AutoMapper;
 using BookStoreApp.API.Data;
-using BookStoreApp.API.Data.Models.Author;
-using BookStoreApp.API.Data.Models.Book;
-using BookStoreApp.API.Data.Models.User;
+using BookStoreApp.API.Models.Author;
+using BookStoreApp.API.Models.Book;
+using BookStoreApp.API.Models.User;
 
 namespace BookStoreApp.API.Configurations;
 

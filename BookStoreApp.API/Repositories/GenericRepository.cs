@@ -1,4 +1,7 @@
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using BookStoreApp.API.Data;
+using BookStoreApp.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreApp.API.Repositories;
@@ -6,11 +9,13 @@ namespace BookStoreApp.API.Repositories;
 public class GenericRepository<T> : IGenericRepository<T> where T : class //cip...64
 {
     private readonly BookStoreDbContext _context;
+    private readonly IMapper _mapper; //cip...65
     private readonly DbSet<T> _db;
 
-    public GenericRepository(BookStoreDbContext context)
+    public GenericRepository(BookStoreDbContext context, IMapper mapper) //cip...65
     {
         _context = context;
+        this._mapper = mapper;
         _db = _context.Set<T>();
     }
 
@@ -59,5 +64,22 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
     {
         var entity = await GetAsync(id);
         return entity != null;
+    }
+
+    public async Task<VirtualiseResponse<TResult>> GetAllAsync<TResult>(QueryParameters queryParameters) where TResult : class  //cip...65
+    {
+        var totalSize = await _context.Set<T>().CountAsync();
+        var items = await _context.Set<T>()
+            //.Skip((queryParameters.PageNumber - 1) * queryParameters.PageSize)
+            .Skip(Math.Max(queryParameters.PageNumber - 1, 0) * queryParameters.PageSize)
+            .Take(queryParameters.PageSize)
+            //.Select(e => (TResult)(object)e) // This cast assumes T and TResult are compatible
+            .ProjectTo<TResult>(_mapper.ConfigurationProvider) // Requires AutoMapper
+            .ToListAsync();
+        return new VirtualiseResponse<TResult>
+        {
+            Items = items,
+            TotalCount = totalSize
+        };
     }
 }

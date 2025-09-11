@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AutoMapper;
 using BookStoreApp.API.Data;
-using BookStoreApp.API.Data.Models.User;
+using BookStoreApp.API.Models.User;
 using BookStoreApp.API.Static;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
