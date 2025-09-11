@@ -6,6 +6,7 @@ using AutoMapper;
 using BookStoreApp.API.Static; //cip...49. my extra implementation
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper.QueryableExtensions;
+using BookStoreApp.API.Repositories;
 
 namespace BookStoreApp.API.Controllers
 {
@@ -15,15 +16,16 @@ namespace BookStoreApp.API.Controllers
     [Authorize] // Ensure that only authenticated users can access this controller
     public class AuthorsController : ControllerBase
     {
-        private readonly BookStoreDbContext _context;
+        //private readonly BookStoreDbContext _context;
+        private readonly IAuthorsRepository _authorsRepository; //cip...64
         private readonly IMapper _mapper; //cip...19
         private readonly ILogger _logger; //cip...20
 
-        public AuthorsController(BookStoreDbContext context, IMapper mapper, ILogger<AuthorsController> logger) //cip...19, 20
+        public AuthorsController(IAuthorsRepository authorsRepository, IMapper mapper, ILogger<AuthorsController> logger) //cip...19, 20, 64
         {
-            _context = context;
-            this._mapper = mapper;
-            this._logger = logger;
+            _authorsRepository = authorsRepository;
+            _mapper = mapper;
+            _logger = logger;
         }
 
         // GET: api/Authors
@@ -35,7 +37,8 @@ namespace BookStoreApp.API.Controllers
             try //cip...20
             {
                 //return await _context.Authors.ToListAsync();
-                var authors = await _context.Authors.ToListAsync();
+                //var authors = await _authorsRepository.Authors.ToListAsync();
+                var authors = await _authorsRepository.GetAllAsync(); //cip...64
                 var authorsDto = _mapper.Map<IEnumerable<AuthorReadOnlyDto>>(authors);
                 return Ok(authorsDto); // Return the mapped list of authorsDto
             }
@@ -54,10 +57,11 @@ namespace BookStoreApp.API.Controllers
         {
             try //cip...20
             {
-                var author = await _context.Authors
-                    .Include(a => a.Books) // Include related books
-                    .ProjectTo<AuthorDetailsDto>(_mapper.ConfigurationProvider) // Project to AuthorDetailsDto
-                    .FirstOrDefaultAsync(q => q.Id == id);
+                // var author = await _authorsRepository.Authors
+                //     .Include(a => a.Books) // Include related books
+                //     .ProjectTo<AuthorDetailsDto>(_mapper.ConfigurationProvider) // Project to AuthorDetailsDto
+                //     .FirstOrDefaultAsync(q => q.Id == id);
+                var author = await _authorsRepository.GetAuthorDetailsAsync(id); //cip...64
 
                 if (author == null)
                 {
@@ -92,7 +96,7 @@ namespace BookStoreApp.API.Controllers
                     return BadRequest();
                 }
 
-                var author = await _context.Authors.FindAsync(id);
+                var author = await _authorsRepository.GetAsync(id);
                 if (author == null)
                 {
                     _logger.LogWarning($"{nameof(Author)} record not found in {nameof(PutAuthor)} with id = {id}.");
@@ -101,11 +105,12 @@ namespace BookStoreApp.API.Controllers
 
                 _mapper.Map(authorDto, author); // Map AuthorUpdateDto to Author (ie copy data from authorDto to author)
 
-                _context.Entry(author).State = EntityState.Modified;
+                //_authorsRepository.Entry(author).State = EntityState.Modified; cip...64 not needed
 
                 try
                 {
-                    await _context.SaveChangesAsync();
+                    //await _authorsRepository.SaveChangesAsync();
+                    await _authorsRepository.UpdateAsync(author); //cip...64
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -148,8 +153,9 @@ namespace BookStoreApp.API.Controllers
                 // };
                 var author = _mapper.Map<Author>(authorDto);
                 //_context.Authors.Add(author);
-                await _context.Authors.AddAsync(author); //tw update
-                await _context.SaveChangesAsync();
+                //await _authorsRepository.Authors.AddAsync(author); //tw update
+                await _authorsRepository.AddAsync(author); //cip...64
+                //await _authorsRepository.SaveChangesAsync(); cip...64 not needed
 
                 //return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
                 return CreatedAtAction(nameof(GetAuthor), new { id = author.Id }, author); //tw update (to use nameof)
@@ -168,7 +174,8 @@ namespace BookStoreApp.API.Controllers
         {
             try //cip...20
             {
-                var author = await _context.Authors.FindAsync(id);
+                //var author = await _authorsRepository.Authors.FindAsync(id);
+                var author = await _authorsRepository.GetAsync(id); //cip...64
                 if (author == null)
                 {
                     _logger.LogWarning($"{nameof(Author)} record not found in {nameof(DeleteAuthor)} with id = {id}.");
@@ -177,8 +184,9 @@ namespace BookStoreApp.API.Controllers
 
                 try //cip...48 added by me to handle deletion failure eg fk violation
                 {
-                    _context.Authors.Remove(author);
-                    await _context.SaveChangesAsync();
+                    //_authorsRepository.Authors.Remove(author);
+                    await _authorsRepository.DeleteAsync(id); //cip...64
+                    //await _authorsRepository.SaveChangesAsync(); cip...64 not needed
                 }
                 catch (Exception ex)
                 {
@@ -204,7 +212,8 @@ namespace BookStoreApp.API.Controllers
         */
         private async Task<bool> AuthorExistsAsync(int id)  //tw update
         {
-            return await _context.Authors.AnyAsync(e => e.Id == id);
+            //return await _authorsRepository.Authors.AnyAsync(e => e.Id == id);
+            return await _authorsRepository.Exists(id); //cip...64
         }
     }
 }
