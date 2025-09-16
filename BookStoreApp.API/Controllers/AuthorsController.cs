@@ -32,7 +32,7 @@ namespace BookStoreApp.API.Controllers
         [HttpGet]
         //public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
         //public async Task<ActionResult<IEnumerable<AuthorReadOnlyDto>>> GetAuthors() //cip...19
-        public async Task<ActionResult<VirtualiseResponse<AuthorReadOnlyDto>>> GetAuthors([FromQuery]QueryParameters queryParameters) //cip...65
+        public async Task<ActionResult<VirtualiseResponse<AuthorReadOnlyDto>>> GetAuthors([FromQuery] QueryParameters queryParameters) //cip...65
         {
             _logger.LogInformation($"Request to {nameof(GetAuthors)}"); //cip...20
             try //cip...20

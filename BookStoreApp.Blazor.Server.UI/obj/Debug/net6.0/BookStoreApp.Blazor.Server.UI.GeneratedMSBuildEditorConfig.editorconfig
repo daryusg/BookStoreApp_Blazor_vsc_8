@@ -24,6 +24,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kev/projects_vscode/BookStoreApp/BookStoreApp.Blazor.Server.UI/Pages/Authors/AuthorsTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yc1xBdXRob3JzVGFibGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kev/projects_vscode/BookStoreApp/BookStoreApp.Blazor.Server.UI/Pages/Authors/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yc1xDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

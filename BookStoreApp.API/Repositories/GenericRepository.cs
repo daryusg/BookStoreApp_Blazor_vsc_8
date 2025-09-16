@@ -71,9 +71,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
         var totalSize = await _context.Set<T>().CountAsync();
         var items = await _context.Set<T>()
             //.Skip((queryParameters.PageNumber - 1) * queryParameters.PageSize)
-            .Skip(Math.Max(queryParameters.PageNumber - 1, 0) * queryParameters.PageSize)
+            .Skip(Math.Max(queryParameters.PageNumber, 0) * queryParameters.PageSize)
             .Take(queryParameters.PageSize)
-            //.Select(e => (TResult)(object)e) // This cast assumes T and TResult are compatible
+            //.Select(e => (TResult)(object)e) // This cast assumes T and TResult are compatible copilot
             .ProjectTo<TResult>(_mapper.ConfigurationProvider) // Requires AutoMapper
             .ToListAsync();
         return new VirtualiseResponse<TResult>
