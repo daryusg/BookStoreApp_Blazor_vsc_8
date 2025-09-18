@@ -1,5 +1,5 @@
 using Blazored.LocalStorage;
-using BookStoreApp.API.Models;
+using BookStoreApp.Blazor.Server.UI.Models;
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 
 namespace BookStoreApp.Blazor.Server.UI.Services;
@@ -95,7 +95,7 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
             await GetBearerTokenAsync();
             //var data = await _client.AuthorsAllAsync();
             //var data = await _client.AuthorsGETAsync(); //cip...65
-            var data = await _client.AuthorsGETAsync(queryParams.PageNumber, queryParams.PageSize); //cip...66
+            var data = await _client.AuthorsGETAsync(queryParams.StartIndex, queryParams.PageSize); //cip...66
             //response = new Response<List<AuthorReadOnlyDto>>
             response = new Response<AuthorReadOnlyDtoVirtualiseResponse> //cip...66
             {
@@ -107,6 +107,27 @@ public class AuthorService : BaseHttpService, IAuthorService //cip...44
         {
             //response = ConvertApiExceptions<List<AuthorReadOnlyDto>>(apiEx);
             response = ConvertApiExceptions<AuthorReadOnlyDtoVirtualiseResponse>(apiEx); //cip...66
+        }
+        return response;
+    }
+
+    public async Task<Response<List<AuthorReadOnlyDto>>> GetAsync() //cip...66
+    {
+        Response<List<AuthorReadOnlyDto>> response;
+
+        try
+        {
+            await GetBearerTokenAsync();
+            var data = await _client.GetAllAsync();
+            response = new Response<List<AuthorReadOnlyDto>>
+            {
+                Data = data.ToList(),
+                Success = true
+            };
+        }
+        catch (ApiException apiEx)
+        {
+            response = ConvertApiExceptions<List<AuthorReadOnlyDto>>(apiEx);
         }
         return response;
     }

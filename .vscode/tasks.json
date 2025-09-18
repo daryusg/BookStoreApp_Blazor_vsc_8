@@ -2,6 +2,16 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "build-api",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/BookStoreApp.API/BookStoreApp.API.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
       "label": "build-ui",
       "command": "dotnet",
       "type": "process",

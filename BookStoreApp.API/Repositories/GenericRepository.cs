@@ -51,7 +51,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
     public async Task DeleteAsync(int id)
     {
         var entity = await GetAsync(id);
-        _db.Remove(entity);
+        _context.Remove(entity);
         await SaveAsync();
     }
 
@@ -66,20 +66,19 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
         return entity != null;
     }
 
-    public async Task<VirtualiseResponse<TResult>> GetAllAsync<TResult>(QueryParameters queryParameters) where TResult : class  //cip...65
+    public async Task<VirtualiseResponse<TResult>> GetAllAsync<TResult>(QueryParameters queryParams) where TResult : class  //cip...65
     {
         var totalSize = await _context.Set<T>().CountAsync();
         var items = await _context.Set<T>()
-            //.Skip((queryParameters.PageNumber - 1) * queryParameters.PageSize)
-            .Skip(Math.Max(queryParameters.PageNumber, 0) * queryParameters.PageSize)
-            .Take(queryParameters.PageSize)
+            .Skip(queryParams.StartIndex)
+            .Take(queryParams.PageSize)
             //.Select(e => (TResult)(object)e) // This cast assumes T and TResult are compatible copilot
             .ProjectTo<TResult>(_mapper.ConfigurationProvider) // Requires AutoMapper
             .ToListAsync();
         return new VirtualiseResponse<TResult>
         {
             Items = items,
-            TotalCount = totalSize
+            TotalSize = totalSize
         };
     }
 }

@@ -155,11 +155,11 @@
             img = newBook.Image;
 
             //load the authors
-            @* var authorsResponse = await authorService.GetAsync();
+            var authorsResponse = await authorService.GetAsync();
             if (authorsResponse.Success)
             {
                 authors = authorsResponse.Data;
-            } *@
+            }
         }
         else
         {

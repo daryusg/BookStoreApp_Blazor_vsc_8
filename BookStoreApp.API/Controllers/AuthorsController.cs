@@ -51,6 +51,27 @@ namespace BookStoreApp.API.Controllers
             }
         }
 
+        // GET: api/Authors/GetAll
+        //note: i needed to reintroduce this for dropdowns etc where i want all authors with no paging
+        [HttpGet("GetAll")] //<--- this must be unique and makes the route api/Authors/GetAll
+        public async Task<ActionResult<IEnumerable<AuthorReadOnlyDto>>> GetAuthors() //cip...19, 66
+        {
+            _logger.LogInformation($"Request to {nameof(GetAuthors)}");
+            try //cip...20
+            {
+                //return await _context.Authors.ToListAsync();
+                var authors = await _authorsRepository.GetAllAsync();
+                var authorsDto = _mapper.Map<IEnumerable<AuthorReadOnlyDto>>(authors);
+                return Ok(authorsDto); // Return the mapped list of authorsDto
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred in {nameof(GetAuthors)}");
+                return StatusCode(500, Messages.Error500Message); // Return a 500 Internal Server Error response
+            }
+        }
+
+
         // GET: api/Authors/5
         [HttpGet("{id}")]
         //public async Task<ActionResult<Author>> GetAuthor(int id)

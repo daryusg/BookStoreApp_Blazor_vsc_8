@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "BookStore API",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-api",
+      "program": "${workspaceFolder}/BookStoreApp.API/bin/Debug/net9.0/BookStoreApp.API.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/BookStoreApp.API",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:7235;http://localhost:5058"
+      },
+      "stopAtEntry": false
+    },
+    {
       "name": "Blazor Server UI",
       "type": "coreclr",
       "request": "launch",

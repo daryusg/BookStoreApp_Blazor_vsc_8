@@ -139,14 +139,14 @@
 
     private Response<int> response = new() { Success = true };
 
-    @* protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         var authorsResponse = await authorService.GetAsync();
         if (authorsResponse.Success)
         {
             authors = authorsResponse.Data;
         }
-    } *@
+    }
 
     private async Task HandleCreate()
     {
