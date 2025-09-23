@@ -1,8 +1,5 @@
 @*cip...39*@
 @page "/users/login"
-@inject IAuthenticationService authService;
-@inject NavigationManager navManager
-@using BookStoreApp.Blazor.Server.UI.Services.Base
 
 <h3>Login</h3>
 
@@ -32,31 +29,3 @@
         <button type="submit" class="btn btn-primary">Login</button>
     </EditForm>
 </div>
-
-@code {
-    LoginUserDto LoginModel = new();
-    string message = string.Empty;
-
-    public async Task HandleLoginAsync()
-    {
-        try
-        {
-            var response = await authService.AuthenticateAsync(LoginModel);
-            if (response)
-            {
-                // Handle successful login, e.g., redirect to home page
-                navManager.NavigateTo("/");
-            }
-        }
-        catch (ApiException ex)
-        {
-            if (ex.StatusCode >= 200 && ex.StatusCode <= 299)
-            {
-                // Registration successful, redirect home page
-                navManager.NavigateTo("/users/login");
-                //return;
-            }
-            message = ex.Message;
-        }
-    }
-}

@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Users\" />
     <Folder Include="Providers\" />
     <Folder Include="Services\Authentication\" />
   </ItemGroup>

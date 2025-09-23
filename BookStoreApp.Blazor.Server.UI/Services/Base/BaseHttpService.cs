@@ -36,19 +36,11 @@ public class BaseHttpService //cip...44
                         Success = false
                     };
                 }
-            case 401: //copilot
+            case 401: //copilot (then tw addressed in 67)
                 {
                     return new Response<Guid>
                     {
                         Message = "You are not authorized to perform this action.",
-                        Success = false
-                    };
-                }
-            case 404:
-                {
-                    return new Response<Guid>
-                    {
-                        Message = "The requested item could not be found.",
                         Success = false
                     };
                 }
