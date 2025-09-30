@@ -1,0 +1,35 @@
+name: Build and Deploy .NET 9 API to Azure
+
+on:
+  push:
+    branches:
+      - main  # or 'master' or your chosen branch
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET 9
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore ./BookStoreApp.API/BookStoreApp.API.csproj
+
+    - name: Build
+      run: dotnet build --configuration Release ./BookStoreApp.API/BookStoreApp.API.csproj
+
+    - name: Publish
+      run: dotnet publish --configuration Release -o ./publish ./BookStoreApp.API/BookStoreApp.API.csproj
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: CompleteBlazorAndASPdotNETAPIDev-API
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+        package: ./publish

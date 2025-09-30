@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookStoreApp.Blazor.Server.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62c05c8bf6c717c7c65034837d48980c1d0621e1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ed2b05793bcf41db48e668bae78719b7afc0e0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookStoreApp.Blazor.Server.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookStoreApp.Blazor.Server.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
