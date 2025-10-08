@@ -72,3 +72,7 @@ BookStoreApp.API/appsettings.Production.json
 
 # Ignore images folder
 BookStoreApp.API/wwwroot/images/
+
+# Deployment output
+BookStoreApp.API/publish.zip
+BookStoreApp.API/publish/

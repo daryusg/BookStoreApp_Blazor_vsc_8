@@ -1,7 +1,4 @@
 {
-    "debug.javascript.unrecognizedLanguage": [
-        "jsonc"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/319392f4-be70-4c9b-a9bb-ee6d953b541e/resourceGroups/leavemanagement-rg/providers/Microsoft.Web/sites/CompleteBlazorAndASPdotNETAPIDev-API",
+    "appService.defaultWebAppToDeploy": "/subscriptions/319392f4-be70-4c9b-a9bb-ee6d953b541e/resourceGroups/bookstoreappkev-rg/providers/Microsoft.Web/sites/BookStoreAppKevAPI",
     "appService.deploySubpath": "BookStoreApp.API\\publish"
 }

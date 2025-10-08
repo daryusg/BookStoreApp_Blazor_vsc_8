@@ -2,6 +2,7 @@ using BookStoreApp.API.Configurations;
 using BookStoreApp.API.Data;
 using BookStoreApp.API.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -75,6 +76,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//------------------------------------
+//cip...71 chatgpt Global error handling middleware
+app.UseExceptionHandler("/error");
+app.Map("/error", (HttpContext httpContext) =>
+{
+    var exceptionHandlerPathFeature = httpContext.Features.Get<IExceptionHandlerPathFeature>();
+    var ex = exceptionHandlerPathFeature?.Error;
+    return Results.Problem(detail: ex?.Message, title: "Unhandled Exception");
+});
+//------------------------------------
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles(); //cip...55. used to store images locally.
