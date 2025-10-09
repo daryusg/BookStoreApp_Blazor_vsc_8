@@ -1,5 +1,11 @@
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\web.config
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\appsettings.json
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\appsettings.Development.json
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\appsettings.json
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\BookStoreApp.API.deps.json
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\BookStoreApp.API.runtimeconfig.json
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\BookStoreApp.API.staticwebassets.endpoints.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\BookStoreApp.API.staticwebassets.runtime.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\BookStoreApp.API.staticwebassets.endpoints.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\BookStoreApp.API.exe
@@ -292,9 +298,3 @@ C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\obj\Debug\net9.0\refi
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\obj\Debug\net9.0\BookStoreApp.API.pdb
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\obj\Debug\net9.0\BookStoreApp.API.genruntimeconfig.cache
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\obj\Debug\net9.0\ref\BookStoreApp.API.dll
-C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\web.config
-C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\appsettings.Development.json
-C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\appsettings.json
-C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\BookStoreApp.API.deps.json
-C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\BookStoreApp.API.runtimeconfig.json
-C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.API\bin\Debug\net9.0\publish\BookStoreApp.API.staticwebassets.endpoints.json
