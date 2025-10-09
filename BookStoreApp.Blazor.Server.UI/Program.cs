@@ -21,7 +21,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddHttpClient<IClient, Client>(client =>
 {
     // TODO: Replace with config-based base URL
-    client.BaseAddress = new Uri("https://localhost:7235");
+    client.BaseAddress = new Uri(builder.Configuration["BaseAddress"]); //cip...72
 }); //cip...37
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>(); //cip...39
 builder.Services.AddScoped<IAuthorService, AuthorService>(); //cip...44
