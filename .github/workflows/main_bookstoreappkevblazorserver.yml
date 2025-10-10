@@ -26,8 +26,8 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: dotnet publish Blazor Server
-        run: dotnet publish ./BookStoreAppKevBlazorServer/BookStoreAppKevBlazorServer.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+      - name: dotnet publish
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8E19BEE1F446423B93932E49FE0D470D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_805D63707E734A8CB937A31EA303205B }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A24563FA3E8247FC80493D2564E5D205 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D4D3860B423C44FCB3F63EFDEAC1D86F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B6CD03E6FF6C4AAA9880CF288DF52040 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0FC169453D2C4D18AD7362FD17F78278 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
