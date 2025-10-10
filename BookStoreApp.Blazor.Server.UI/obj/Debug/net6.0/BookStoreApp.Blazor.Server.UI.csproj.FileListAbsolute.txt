@@ -1,5 +1,6 @@
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\bin\Debug\net6.0\appsettings.json
+C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\bin\Debug\net6.0\appsettings.Production.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\bin\Debug\net6.0\BookStoreApp.Blazor.Server.UI.staticwebassets.runtime.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\bin\Debug\net6.0\BookStoreApp.Blazor.Server.UI.staticwebassets.endpoints.json
 C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\bin\Debug\net6.0\BookStoreApp.Blazor.Server.UI.exe
