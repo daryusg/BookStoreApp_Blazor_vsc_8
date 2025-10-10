@@ -1,5 +1,7 @@
-﻿@inject IAuthorService authorService;
-@inject IJSRuntime jsRuntime;
+﻿@using Microsoft.IdentityModel.Tokens
+@inject IAuthorService authorService
+@inject IJSRuntime jsRuntime
+@inject Microsoft.Extensions.Configuration.IConfiguration configuration
 
 <table class="table table-responsive">
     <thead>
@@ -10,10 +12,7 @@
         </tr>
     </thead>
     <tbody>
-    </tbody> <!-- leave empty -->
-
-    <Virtualize ItemsProvider="LoadAuthors" Context="author">
-        <ItemContent>
+        <Virtualize ItemsProvider="LoadAuthors" Context="author">
             <tr>
                 <td>@author.FirstName</td>
                 <td>@author.LastName</td>
@@ -31,8 +30,8 @@
                     </AuthorizeView>
                 </td>
             </tr>
-        </ItemContent>
-    </Virtualize>
+        </Virtualize>
+    </tbody>
 </table>
 
 @code {
@@ -41,10 +40,10 @@
 
     private async ValueTask<ItemsProviderResult<AuthorReadOnlyDto>> LoadAuthors(ItemsProviderRequest request)
     {
-        int pageSize = request.Count;
+        int pageSize = configuration.GetValue<int>("Paging:PageSize", 50);
         int startIndex = request.StartIndex;
 
-        var queryParams = new QueryParameters
+        var queryParams = new QueryParameters(configuration)
         {
             StartIndex = startIndex,
             PageSize = pageSize
