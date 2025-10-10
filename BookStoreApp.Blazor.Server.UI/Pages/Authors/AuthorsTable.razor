@@ -10,7 +10,10 @@
         </tr>
     </thead>
     <tbody>
-        <Virtualize ItemsProvider="LoadAuthors" Context="author">
+    </tbody> <!-- leave empty -->
+
+    <Virtualize ItemsProvider="LoadAuthors" Context="author">
+        <ItemContent>
             <tr>
                 <td>@author.FirstName</td>
                 <td>@author.LastName</td>
@@ -28,8 +31,8 @@
                     </AuthorizeView>
                 </td>
             </tr>
-        </Virtualize>
-    </tbody>
+        </ItemContent>
+    </Virtualize>
 </table>
 
 @code {
