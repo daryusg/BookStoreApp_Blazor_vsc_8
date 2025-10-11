@@ -10,11 +10,13 @@ public class AuthorsRepository : GenericRepository<Author>, IAuthorsRepository /
 {
     private readonly BookStoreDbContext _context;
     private readonly IMapper _mapper;
+    private readonly ILogger<AuthorsRepository> _logger; //cip...72 (chatgpt)
 
-    public AuthorsRepository(BookStoreDbContext context, IMapper mapper) : base(context, mapper)
+    public AuthorsRepository(BookStoreDbContext context, IMapper mapper, ILogger<AuthorsRepository> logger) : base(context, mapper, logger)  //cip...72 (chatgpt)
     {
         this._context = context;
         this._mapper = mapper;
+        this._logger = logger;
     }
 
     public async Task<AuthorDetailsDto> GetAuthorDetailsAsync(int id)

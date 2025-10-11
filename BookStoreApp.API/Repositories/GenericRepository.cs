@@ -10,12 +10,14 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
 {
     private readonly BookStoreDbContext _context;
     private readonly IMapper _mapper; //cip...65
+    private readonly ILogger<GenericRepository<T>> _logger; //cip...72 (chatgpt)
     private readonly DbSet<T> _db;
 
-    public GenericRepository(BookStoreDbContext context, IMapper mapper) //cip...65
+    public GenericRepository(BookStoreDbContext context, IMapper mapper, ILogger<GenericRepository<T>> logger) //cip...65,72 (chatgpt)
     {
         _context = context;
         this._mapper = mapper;
+        this._logger = logger;
         _db = _context.Set<T>();
     }
 
@@ -76,7 +78,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
             .ProjectTo<TResult>(_mapper.ConfigurationProvider) // Requires AutoMapper
             .ToListAsync();
 
-        Console.WriteLine($"Returning {items.Count} authors, TotalSize = {totalSize}"); //cip...72 chatgpt
+         _logger.LogInformation("Returning {Count} authors, TotalSize = {TotalSize}", items.Count, totalSize); //cip...72 chatgpt
 
         return new VirtualiseResponse<TResult>
         {

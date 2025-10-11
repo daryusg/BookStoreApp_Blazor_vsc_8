@@ -1,6 +1,8 @@
 ﻿@using Microsoft.IdentityModel.Tokens
 @inject IAuthorService authorService
 @inject IJSRuntime jsRuntime
+@inject ILogger<AuthorsTable> logger //cip...72 chatgpt
+
 
 <table class="table table-responsive">
     <thead>
@@ -55,7 +57,7 @@
             return new ItemsProviderResult<AuthorReadOnlyDto>(Array.Empty<AuthorReadOnlyDto>(), 0);
         }
 
-        Console.WriteLine($"Fetched {result.Data.Items.Count} authors out of {result.Data.TotalSize}"); //cip...72 chatgpt
+        logger.LogInformation("Fetched {Count} authors out of {Total}", result.Data.Items.Count, result.Data.TotalSize); //cip...72 chatgpt
 
         return new ItemsProviderResult<AuthorReadOnlyDto>(
             result.Data.Items,

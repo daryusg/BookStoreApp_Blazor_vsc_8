@@ -33,8 +33,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Host.UseSerilog((ctx, lc) =>
-    lc.WriteTo.Console()
-      .ReadFrom.Configuration(ctx.Configuration)
+    lc.ReadFrom.Configuration(ctx.Configuration) //cip...72 advised by chatgpt to flip the order for it to work in azure.
+      .WriteTo.Console()
 ); //cip...10 ctx=context, lc=logging configuration
 
 //cip...11. esssentially, this is the ootb (default) policy.
