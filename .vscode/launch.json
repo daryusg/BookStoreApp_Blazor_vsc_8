@@ -6,7 +6,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-api",
-      "program": "${workspaceFolder}/BookStoreApp.API/bin/Debug/net9.0/BookStoreApp.API.dll",
+      "program": "${workspaceFolder}/BookStoreApp.API/bin/Debug/net8.0/BookStoreApp.API.dll",
       "args": [],
       "cwd": "${workspaceFolder}/BookStoreApp.API",
       "env": {

@@ -10,11 +10,13 @@ public class BooksRepository : GenericRepository<Book>, IBooksRepository //cip..
 {
     private readonly BookStoreDbContext _context;
     private readonly IMapper _mapper;
+    private readonly ILogger<BooksRepository> logger;
 
-    public BooksRepository(BookStoreDbContext context, IMapper mapper) : base(context, mapper)
+    public BooksRepository(BookStoreDbContext context, IMapper mapper, ILogger<BooksRepository> logger) : base(context, mapper, logger)  //cip...72 (chatgpt)
     {
         this._context = context;
         this._mapper = mapper;
+        this.logger = logger;
     }
 
     public async Task<List<BookReadOnlyDto>> GetAllBooksAsync()
