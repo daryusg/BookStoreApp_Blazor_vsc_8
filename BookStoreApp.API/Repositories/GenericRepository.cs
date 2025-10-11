@@ -76,7 +76,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
             .ProjectTo<TResult>(_mapper.ConfigurationProvider) // Requires AutoMapper
             .ToListAsync();
 
-        //Console.WriteLine($"Returning {items.Count} authors, TotalSize = {totalSize}"); //cip...72 chatgpt
+        Console.WriteLine($"Returning {items.Count} authors, TotalSize = {totalSize}"); //cip...72 chatgpt
 
         return new VirtualiseResponse<TResult>
         {
