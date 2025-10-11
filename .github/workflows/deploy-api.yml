@@ -6,18 +6,19 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore
+      - name: Restore dependencies
         run: dotnet restore BookStoreApp.API/BookStoreApp.API.csproj
 
       - name: Build
@@ -30,5 +31,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: BookStoreAppKevApi
-          publish-profile: ${{ secrets.AZURE_API_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZURE_BOOKSTOREAPPKEVAPI_PUBLISH_PROFILE }}
           package: ./publish
