@@ -1,7 +1,6 @@
 ﻿@using Microsoft.IdentityModel.Tokens
 @inject IAuthorService authorService
 @inject IJSRuntime jsRuntime
-@inject Microsoft.Extensions.Configuration.IConfiguration configuration
 
 <table class="table table-responsive">
     <thead>
@@ -40,10 +39,10 @@
 
     private async ValueTask<ItemsProviderResult<AuthorReadOnlyDto>> LoadAuthors(ItemsProviderRequest request)
     {
-        int pageSize = configuration.GetValue<int>("Paging:PageSize", 50);
+        int pageSize = request.Count;
         int startIndex = request.StartIndex;
 
-        var queryParams = new QueryParameters(configuration)
+        var queryParams = new QueryParameters
         {
             StartIndex = startIndex,
             PageSize = pageSize
@@ -55,6 +54,8 @@
         {
             return new ItemsProviderResult<AuthorReadOnlyDto>(Array.Empty<AuthorReadOnlyDto>(), 0);
         }
+
+        Console.WriteLine($"Fetched {result.Data.Items.Count} authors out of {result.Data.TotalSize}"); //cip...72 chatgpt
 
         return new ItemsProviderResult<AuthorReadOnlyDto>(
             result.Data.Items,

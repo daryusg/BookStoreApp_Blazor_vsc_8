@@ -75,6 +75,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class //cip.
             //.Select(e => (TResult)(object)e) // This cast assumes T and TResult are compatible copilot
             .ProjectTo<TResult>(_mapper.ConfigurationProvider) // Requires AutoMapper
             .ToListAsync();
+
+        //Console.WriteLine($"Returning {items.Count} authors, TotalSize = {totalSize}"); //cip...72 chatgpt
+
         return new VirtualiseResponse<TResult>
         {
             Items = items,

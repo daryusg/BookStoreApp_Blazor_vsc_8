@@ -20,7 +20,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-ui",
-      "program": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/bin/Debug/net6.0/BookStoreApp.Blazor.Server.UI.dll",
+      "program": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/bin/Debug/net8.0/BookStoreApp.Blazor.Server.UI.dll",
       "args": [],
       "cwd": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI",
       "env": {
