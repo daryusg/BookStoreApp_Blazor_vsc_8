@@ -6,8 +6,14 @@ using BookStoreApp.Blazor.Server.UI.Services;
 using BookStoreApp.Blazor.Server.UI.Services.Authentication; //cip...39
 using BookStoreApp.Blazor.Server.UI.Services.Base;
 using Microsoft.AspNetCore.Components.Authorization;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((ctx, lc) =>
+    lc.ReadFrom.Configuration(ctx.Configuration) //cip...72 advised by chatgpt to flip the order for it to work in azure.
+      .WriteTo.Console()
+); //cip...10 ctx=context, lc=logging configuration
 
 // Add services to the container.
 builder.Services.AddRazorPages();
