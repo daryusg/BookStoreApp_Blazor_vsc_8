@@ -1,39 +1,46 @@
-﻿@using Microsoft.IdentityModel.Tokens
-@inject IAuthorService authorService
+﻿@inject IAuthorService authorService
 @inject IJSRuntime jsRuntime
-@inject ILogger<AuthorsTable> logger //cip...72 chatgpt
+@inject ILogger<AuthorsTable> logger
 
-
-<table class="table table-responsive">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <Virtualize ItemsProvider="LoadAuthors" Context="author">
+<div style="height: 600px; overflow-y: auto;">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>@author.FirstName</td>
-                <td>@author.LastName</td>
-                <td>
-                    <a class="btn btn-primary" href="/authors/details/@author.Id">
-                        <span class="oi oi-person" aria-hidden="true"></span>Details
-                    </a>
-                    <AuthorizeView Roles=@Roles.Administrator>
-                        <a class="btn btn-warning" href="/authors/update/@author.Id">
-                            <span class="oi oi-pencil" aria-hidden="true"></span>Edit
-                        </a>
-                        <button class="btn btn-danger" @onclick="@(() => DeleteAsync(author))">
-                            <span class="oi oi-trash" aria-hidden="true"></span>Delete
-                        </button>
-                    </AuthorizeView>
-                </td>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Action</th>
             </tr>
-        </Virtualize>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <Virtualize ItemsProvider="LoadAuthors" Context="author">
+                <ItemContent>
+                    <tr>
+                        <td>@author.FirstName</td>
+                        <td>@author.LastName</td>
+                        <td>
+                            <a class="btn btn-primary" href="/authors/details/@author.Id">
+                                <span class="oi oi-person" aria-hidden="true"></span> Details
+                            </a>
+                            <AuthorizeView Roles="@Roles.Administrator">
+                                <a class="btn btn-warning" href="/authors/update/@author.Id">
+                                    <span class="oi oi-pencil" aria-hidden="true"></span> Edit
+                                </a>
+                                <button class="btn btn-danger" @onclick="@(() => DeleteAsync(author))">
+                                    <span class="oi oi-trash" aria-hidden="true"></span> Delete
+                                </button>
+                            </AuthorizeView>
+                        </td>
+                    </tr>
+                </ItemContent>
+                <Placeholder>
+                    <tr>
+                        <td colspan="3">Loading...</td>
+                    </tr>
+                </Placeholder>
+            </Virtualize>
+        </tbody>
+    </table>
+</div>
 
 @code {
     [Parameter]
@@ -41,23 +48,21 @@
 
     private async ValueTask<ItemsProviderResult<AuthorReadOnlyDto>> LoadAuthors(ItemsProviderRequest request)
     {
-        int pageSize = request.Count;
-        int startIndex = request.StartIndex;
-
         var queryParams = new QueryParameters
         {
-            StartIndex = startIndex,
-            PageSize = pageSize
+            StartIndex = request.StartIndex,
+            PageSize = request.Count
         };
 
         var result = await authorService.GetAsync(queryParams);
 
         if (!result.Success || result.Data == null)
         {
+            logger.LogWarning("Failed to fetch authors: {Message}", result.Message);
             return new ItemsProviderResult<AuthorReadOnlyDto>(Array.Empty<AuthorReadOnlyDto>(), 0);
         }
 
-        logger.LogInformation("Fetched {Count} authors out of {Total}", result.Data.Items.Count, result.Data.TotalSize); //cip...72 chatgpt
+        logger.LogInformation("Fetched {Count} authors out of {Total}", result.Data.Items.Count, result.Data.TotalSize);
 
         return new ItemsProviderResult<AuthorReadOnlyDto>(
             result.Data.Items,
