@@ -8,7 +8,8 @@ public class QueryParameters //cip...65 (+ chatgpt)
     public int PageSize
     {
         get { return _pageSize; }
-        set { _pageSize = (value > maxPageSize) ? maxPageSize : value; }
+        //set { _pageSize = (value > maxPageSize) ? maxPageSize : value; }
+        set { _pageSize = (value < maxPageSize) ? maxPageSize : value; } //cip...72 (chatgpt) test
     }
 
 }

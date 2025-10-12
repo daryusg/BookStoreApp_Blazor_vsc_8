@@ -3,3 +3,234 @@
 2025-10-12 03:43:01.849 +01:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-10-12 03:43:01.851 +01:00 [INF] Hosting environment: Development
 2025-10-12 03:43:01.851 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI
+2025-10-12 03:56:56.947 +01:00 [INF] Now listening on: https://localhost:7126
+2025-10-12 03:56:57.034 +01:00 [INF] Now listening on: http://localhost:5124
+2025-10-12 03:56:57.040 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-12 03:56:57.041 +01:00 [INF] Hosting environment: Development
+2025-10-12 03:56:57.041 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI
+2025-10-12 04:10:23.508 +01:00 [WRN] Unhandled exception rendering component: No connection could be made because the target machine actively refused it. (localhost:7235)
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:7235)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BookStoreApp.Blazor.Server.UI.Services.Base.Client.LoginAsync(LoginUserDto body, CancellationToken cancellationToken) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Base\ServiceClient.cs:line 335
+   at BookStoreApp.Blazor.Server.UI.Services.Authentication.AuthenticationService.AuthenticateAsync(LoginUserDto loginModel) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Authentication\AuthenticationService.cs:line 31
+   at BookStoreApp.Blazor.Server.UI.Pages.Users.Login.HandleLoginAsync() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Pages\Users\Login.razor.cs:line 19
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.Forms.EditForm.HandleSubmitAsync()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2025-10-12 04:10:23.578 +01:00 [ERR] Unhandled exception in circuit '-z4CPJlnHJ9-OWFlU0FZOCRv23uvocx1WABWQhgxUUY'.
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:7235)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BookStoreApp.Blazor.Server.UI.Services.Base.Client.LoginAsync(LoginUserDto body, CancellationToken cancellationToken) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Base\ServiceClient.cs:line 335
+   at BookStoreApp.Blazor.Server.UI.Services.Authentication.AuthenticationService.AuthenticateAsync(LoginUserDto loginModel) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Authentication\AuthenticationService.cs:line 31
+   at BookStoreApp.Blazor.Server.UI.Pages.Users.Login.HandleLoginAsync() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Pages\Users\Login.razor.cs:line 19
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.Forms.EditForm.HandleSubmitAsync()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2025-10-12 04:10:26.525 +01:00 [WRN] Unhandled exception rendering component: No connection could be made because the target machine actively refused it. (localhost:7235)
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:7235)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BookStoreApp.Blazor.Server.UI.Services.Base.Client.LoginAsync(LoginUserDto body, CancellationToken cancellationToken) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Base\ServiceClient.cs:line 335
+   at BookStoreApp.Blazor.Server.UI.Services.Authentication.AuthenticationService.AuthenticateAsync(LoginUserDto loginModel) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Authentication\AuthenticationService.cs:line 31
+   at BookStoreApp.Blazor.Server.UI.Pages.Users.Login.HandleLoginAsync() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Pages\Users\Login.razor.cs:line 19
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.Forms.EditForm.HandleSubmitAsync()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2025-10-12 04:10:26.532 +01:00 [ERR] Unhandled exception in circuit '-z4CPJlnHJ9-OWFlU0FZOCRv23uvocx1WABWQhgxUUY'.
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:7235)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BookStoreApp.Blazor.Server.UI.Services.Base.Client.LoginAsync(LoginUserDto body, CancellationToken cancellationToken) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Base\ServiceClient.cs:line 335
+   at BookStoreApp.Blazor.Server.UI.Services.Authentication.AuthenticationService.AuthenticateAsync(LoginUserDto loginModel) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Authentication\AuthenticationService.cs:line 31
+   at BookStoreApp.Blazor.Server.UI.Pages.Users.Login.HandleLoginAsync() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Pages\Users\Login.razor.cs:line 19
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.Forms.EditForm.HandleSubmitAsync()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2025-10-12 04:12:03.460 +01:00 [INF] Fetched 28 authors out of 143
+2025-10-12 04:12:06.178 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:06.191 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:06.532 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:06.612 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:09.634 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:09.769 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:17.655 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:17.682 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:18.285 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:27.560 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:27.705 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:27.808 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:28.446 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:28.517 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:29.010 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:29.064 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:29.123 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:29.599 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:29.685 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:30.097 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:30.179 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:30.575 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:30.698 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:30.763 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:31.239 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:31.294 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:31.677 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:31.769 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:31.821 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:33.501 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:33.884 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:33.945 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:34.023 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:34.332 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:34.405 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:34.801 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:34.883 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:35.217 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:35.307 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:35.403 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:35.724 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:35.788 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:36.080 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:36.178 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:36.552 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:36.641 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:36.709 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:37.067 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:37.136 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:37.232 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:37.526 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:37.591 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:37.884 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:37.991 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:38.066 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:38.388 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:38.458 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:38.535 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:41.052 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:41.122 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:41.791 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 04:12:41.863 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 15:08:49.245 +01:00 [INF] Now listening on: https://localhost:7126
+2025-10-12 15:08:49.322 +01:00 [INF] Now listening on: http://localhost:5124
+2025-10-12 15:08:49.325 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-12 15:08:49.326 +01:00 [INF] Hosting environment: Development
+2025-10-12 15:08:49.326 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI
+2025-10-12 15:09:06.950 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:08.816 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:08.848 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:08.927 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:09.147 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:09.216 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:09.493 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:09.576 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:09.903 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:09.931 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:10.006 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:10.256 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:10.313 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:10.376 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:10.623 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:10.686 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:20.239 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:20.379 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:20.442 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:20.850 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:20.929 +01:00 [INF] Fetched 47 authors out of 143
+2025-10-12 15:09:21.206 +01:00 [INF] Fetched 43 authors out of 143
+2025-10-12 15:09:21.273 +01:00 [INF] Fetched 39 authors out of 143
+2025-10-12 15:09:21.343 +01:00 [INF] Fetched 34 authors out of 143
+2025-10-12 15:09:21.640 +01:00 [INF] Fetched 29 authors out of 143
+2025-10-12 15:09:21.692 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-12 15:09:23.646 +01:00 [INF] Fetched 31 authors out of 143
+2025-10-12 15:09:23.693 +01:00 [INF] Fetched 35 authors out of 143
+2025-10-12 15:09:23.968 +01:00 [INF] Fetched 39 authors out of 143
+2025-10-12 15:09:24.011 +01:00 [INF] Fetched 43 authors out of 143
+2025-10-12 15:09:24.037 +01:00 [INF] Fetched 47 authors out of 143
+2025-10-12 15:09:24.263 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:24.333 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:24.391 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:24.637 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:24.694 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.033 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.065 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.087 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.369 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.411 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.468 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.716 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.763 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:25.819 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:26.077 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:26.121 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:26.169 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:26.431 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:26.508 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:26.541 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:45.231 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:45.301 +01:00 [INF] Fetched 50 authors out of 143
+2025-10-12 15:09:45.765 +01:00 [INF] Fetched 50 authors out of 143
