@@ -1,0 +1,83 @@
+2025-10-13 10:06:48.058 +01:00 [INF] Now listening on: https://localhost:7126
+2025-10-13 10:06:48.170 +01:00 [INF] Now listening on: http://localhost:5124
+2025-10-13 10:06:48.177 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-13 10:06:48.178 +01:00 [INF] Hosting environment: Development
+2025-10-13 10:06:48.179 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI
+2025-10-13 10:08:07.527 +01:00 [WRN] Unhandled exception rendering component: No connection could be made because the target machine actively refused it. (localhost:7235)
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:7235)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BookStoreApp.Blazor.Server.UI.Services.Base.Client.LoginAsync(LoginUserDto body, CancellationToken cancellationToken) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Base\ServiceClient.cs:line 335
+   at BookStoreApp.Blazor.Server.UI.Services.Authentication.AuthenticationService.AuthenticateAsync(LoginUserDto loginModel) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Authentication\AuthenticationService.cs:line 31
+   at BookStoreApp.Blazor.Server.UI.Pages.Users.Login.HandleLoginAsync() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Pages\Users\Login.razor.cs:line 19
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.Forms.EditForm.HandleSubmitAsync()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2025-10-13 10:08:07.598 +01:00 [ERR] Unhandled exception in circuit 'XtNs8m4ZFuo88fLi36-B1WlwGFSx1k4_JlIPGf6c1fo'.
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:7235)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BookStoreApp.Blazor.Server.UI.Services.Base.Client.LoginAsync(LoginUserDto body, CancellationToken cancellationToken) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Base\ServiceClient.cs:line 335
+   at BookStoreApp.Blazor.Server.UI.Services.Authentication.AuthenticationService.AuthenticateAsync(LoginUserDto loginModel) in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Services\Authentication\AuthenticationService.cs:line 31
+   at BookStoreApp.Blazor.Server.UI.Pages.Users.Login.HandleLoginAsync() in C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI\Pages\Users\Login.razor.cs:line 19
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.Forms.EditForm.HandleSubmitAsync()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2025-10-13 10:10:20.607 +01:00 [INF] Fetched 28 authors out of 143
+2025-10-13 10:10:22.415 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:22.435 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:22.441 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:22.741 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:22.822 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:22.851 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:23.180 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:23.256 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:23.322 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:23.665 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:23.724 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:24.100 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:24.154 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:24.222 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:24.547 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:24.601 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:25.086 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:25.208 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:25.269 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:25.638 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:25.668 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:26.006 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:26.092 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:26.142 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:10:26.175 +01:00 [INF] Fetched 26 authors out of 143
