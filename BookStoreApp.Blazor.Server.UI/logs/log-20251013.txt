@@ -81,3 +81,20 @@ System.Net.Http.HttpRequestException: No connection could be made because the ta
 2025-10-13 10:10:26.092 +01:00 [INF] Fetched 26 authors out of 143
 2025-10-13 10:10:26.142 +01:00 [INF] Fetched 26 authors out of 143
 2025-10-13 10:10:26.175 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:34:30.253 +01:00 [INF] Now listening on: https://localhost:7126
+2025-10-13 10:34:30.329 +01:00 [INF] Now listening on: http://localhost:5124
+2025-10-13 10:34:30.333 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-13 10:34:30.333 +01:00 [INF] Hosting environment: Development
+2025-10-13 10:34:30.334 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI
+2025-10-13 10:37:16.075 +01:00 [INF] Fetched 28 authors out of 143
+2025-10-13 10:37:17.951 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:17.979 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:17.985 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.119 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.167 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.234 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.460 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.535 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.615 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.907 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 10:37:18.970 +01:00 [INF] Fetched 26 authors out of 143
