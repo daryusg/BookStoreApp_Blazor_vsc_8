@@ -6,7 +6,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-api",
-      "program": "${workspaceFolder}/BookStoreApp.API/bin/Debug/net8.0/BookStoreApp.API.dll",
+      "program": "${workspaceFolder}/BookStoreApp.API/bin/Debug/net9.0/BookStoreApp.API.dll",
       "args": [],
       "cwd": "${workspaceFolder}/BookStoreApp.API",
       "env": {
@@ -20,7 +20,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-ui",
-      "program": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/bin/Debug/net8.0/BookStoreApp.Blazor.Server.UI.dll",
+      "program": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI/bin/Debug/net9.0/BookStoreApp.Blazor.Server.UI.dll",
       "args": [],
       "cwd": "${workspaceFolder}/BookStoreApp.Blazor.Server.UI",
       "env": {
