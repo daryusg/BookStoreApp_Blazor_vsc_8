@@ -191,3 +191,66 @@ System.Net.Http.HttpRequestException: No connection could be made because the ta
 2025-10-13 15:52:07.307 +01:00 [INF] Fetched 26 authors out of 143
 2025-10-13 15:52:07.319 +01:00 [INF] Fetched 26 authors out of 143
 2025-10-13 15:52:07.324 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:42:36.317 +01:00 [INF] Now listening on: https://localhost:7126
+2025-10-13 16:42:36.394 +01:00 [INF] Now listening on: http://localhost:5124
+2025-10-13 16:42:36.399 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-13 16:42:36.400 +01:00 [INF] Hosting environment: Development
+2025-10-13 16:42:36.401 +01:00 [INF] Content root path: C:\Users\kev\projects_vscode\BookStoreApp\BookStoreApp.Blazor.Server.UI
+2025-10-13 16:42:48.258 +01:00 [INF] Fetched 28 authors out of 143
+2025-10-13 16:43:20.600 +01:00 [INF] Fetched 28 authors out of 143
+2025-10-13 16:43:21.870 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:21.908 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:21.937 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:21.977 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:22.010 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:22.355 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:22.389 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:22.713 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:22.776 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:22.826 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.128 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.166 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.234 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.518 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.549 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.865 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.931 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:23.982 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:24.318 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:24.375 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:24.429 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:24.727 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:24.770 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:24.832 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:25.148 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:25.237 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:25.303 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:25.604 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:25.638 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:26.764 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.020 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.124 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.162 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.419 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.561 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.578 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.791 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:27.844 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.087 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.178 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.211 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.258 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.517 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.549 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.595 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.842 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.910 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:28.939 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.203 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.225 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.250 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.547 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.581 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.616 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.862 +01:00 [INF] Fetched 26 authors out of 143
+2025-10-13 16:43:29.907 +01:00 [INF] Fetched 26 authors out of 143
