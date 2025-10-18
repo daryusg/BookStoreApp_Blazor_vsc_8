@@ -24,10 +24,10 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Build with dotnet
-        run: dotnet build BookStoreApp.API/BookStoreApp.API.csproj --configuration Release
-      
+        run: dotnet build --configuration Release
+
       - name: dotnet publish
-        run: dotnet publish BookStoreApp.API/BookStoreApp.API.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_55F5763318CE4085BEA52939EF85CF33 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_65A5D02869BC4857A1DF14A0860BA0AE }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7B5425D228824B4B81A422DA0746A778 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D0D129163F124BC4B405977487A56F08 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_17AF3FEFB7A741AE80C3BDD833A820AF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0C60E879D76C4361803D183A3A4D8689 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
