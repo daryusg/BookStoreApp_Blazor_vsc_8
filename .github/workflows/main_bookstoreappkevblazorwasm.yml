@@ -1,65 +1,27 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP.Net Core app to Azure Web App - BookStoreAppKevBlazorWASM
+name: Azure Static Web Apps CI/CD
 
 on:
   push:
     branches:
+      - main  # or 'master' or your branch name
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
       - main
-  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: windows-latest
-    permissions:
-      contents: read #This is required for actions/checkout
-
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          dotnet-version: '8.x'
-
-      - name: Build with dotnet
-        run: dotnet build BookStoreApp.Blazor.WebAssembly.UI/BookStoreApp.Blazor.WebAssembly.UI.csproj --configuration Release
-      
-      - name: dotnet publish
-        run: dotnet publish BookStoreApp.Blazor.WebAssembly.UI/BookStoreApp.Blazor.WebAssembly.UI.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: .net-app
-      
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CDF730F577CF48AA8B3223D25E2D9C59 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E300B0DA9014486DADFFC02BE320C935 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_444240EC298A4267A3FFEF837F5B017A }}
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'BookStoreAppKevBlazorWASM'
-          slot-name: 'Production'
-          package: .
-          
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # for PR comments
+          action: "upload"
+          app_location: "BookStoreApp.Blazor.WebAssembly.UI"  # your WASM project folder
+          output_location: "wwwroot"
