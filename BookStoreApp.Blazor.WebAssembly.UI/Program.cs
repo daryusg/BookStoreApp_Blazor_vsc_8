@@ -13,7 +13,12 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient{ BaseAddress = new Uri("https://localhost:7235") }); //cip...61
+var baseAddress = "https://localhost:7235"; //cip...73
+if (builder.HostEnvironment.IsProduction())
+{
+    baseAddress = "bookstoreappkevblazorserver.azurewebsites.net"; //cip...73
+}
+builder.Services.AddScoped(sp => new HttpClient{ BaseAddress = new Uri(baseAddress) }); //cip...61
 
 builder.Services.AddBlazoredLocalStorage(); //cip...39
 
