@@ -16,7 +16,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 var baseAddress = "https://localhost:7235"; //cip...73
 if (builder.HostEnvironment.IsProduction())
 {
-    baseAddress = "https://brave-moss-04aedfd03.2.azurestaticapps.net"; //cip...73
+    baseAddress = "https://bookstoreappkevapi.azurewebsites.net"; //cip...73
 }
 builder.Services.AddScoped(sp => new HttpClient{ BaseAddress = new Uri(baseAddress) }); //cip...61
 
