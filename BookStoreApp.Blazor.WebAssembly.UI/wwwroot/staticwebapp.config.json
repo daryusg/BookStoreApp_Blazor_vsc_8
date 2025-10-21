@@ -1,4 +1,11 @@
 {
+  "routes": [
+    {
+      "route": "/api/*",
+      "allowedRoles": ["anonymous"],
+      "rewrite": "https://bookstoreappkevapi.azurewebsites.net/api/:path"
+    }
+  ],
   "navigationFallback": {
     "rewrite": "index.html"
   },
